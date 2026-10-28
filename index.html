@@ -1,5 +1,2998 @@
-   <!DOCTYPE html>
-   <html lang="th"><head><meta charset="utf-8">
-   <meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbwxAXhaDeW_Ap-Rm2auvI_S-OR4U9WGl9fSn72kBVYGTCK58zDZYEuHcxARbWuSMN-Cog/exec">
-   <title>ระบบเช็คชื่อกิจกรรมสี</title></head>
-   <body><a href="https://script.google.com/macros/s/AKfycbwxAXhaDeW_Ap-Rm2auvI_S-OR4U9WGl9fSn72kBVYGTCK58zDZYEuHcxARbWuSMN-Cog/exec">เปิดระบบเช็คชื่อกิจกรรมสี</a></body></html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="เช็คชื่อ">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#7c3aed">
+<title>ระบบเช็คชื่อกิจกรรมสี</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="google-font-link" href="https://fonts.googleapis.com/css2?family=K2D:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════════
+   CSS VARIABLES — Violet/Purple Theme (HR System style)
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --violet:       #7c3aed;
+  --violet-dk:    #5b21b6;
+  --violet-deep:  #4c1d95;
+  --violet-lt:    #ede9fe;
+  --violet-xlt:   #f5f3ff;
+  --emerald:      #059669;
+  --emerald-dk:   #065f46;
+  --emerald-lt:   #d1fae5;
+  --rose:         #e11d48;
+  --rose-dk:      #881337;
+  --rose-lt:      #ffe4e6;
+  --amber:        #d97706;
+  --amber-dk:     #78350f;
+  --amber-lt:     #fef3c7;
+  --sky:          #0284c7;
+  --blue:         #2563eb;
+  --blue-dk:      #1e3a8a;
+  --blue-lt:      #bfdbfe;
+  --slate:        #64748b;
+  --ink:          #1e1b4b;
+  --ink2:         #312e81;
+  --border:       #e2e8f0;
+  --surface:      #f8fafc;
+  --card:         #ffffff;
+  --bg:           #f0eeff;
+
+  --primary:      #7c3aed;
+  --primary2:     #5b21b6;
+  --accent:       #a78bfa;
+  --text:         #1e1b4b;
+  --text2:        #5b21b6;
+  --text3:        #94a3b8;
+  --shadow:       rgba(124,58,237,0.08);
+  --shadow-md:    rgba(124,58,237,0.14);
+  --header-grad:  linear-gradient(135deg,#4c1d95 0%,#7c3aed 55%,#a78bfa 100%);
+  --header-text:  #ffffff;
+  --input-bg:     #fafbff;
+  --hover-bg:     #f5f3ff;
+
+  --radius-sm:    10px;
+  --radius-md:    14px;
+  --radius-lg:    16px;
+  --radius-xl:    20px;
+
+  --fs-base:      15px;
+  --fs-sm:        13px;
+  --fs-xs:        11px;
+  --fs-lg:        17px;
+  --fs-xl:        22px;
+  --fs-h3:        15px;
+  --fs-label:     13px;
+  --fs-td:        14px;
+  --fs-btn:       15px;
+
+  --spacing-xs:   4px;
+  --spacing-sm:   8px;
+  --spacing-md:   14px;
+  --spacing-lg:   20px;
+  --spacing-xl:   28px;
+
+  --header-h:     110px;
+  --tab-h:        52px;
+  --font-family:  'K2D', sans-serif;
+
+  --safe-bottom:  env(safe-area-inset-bottom, 0px);
+  --safe-top:     env(safe-area-inset-top, 0px);
+  --safe-left:    env(safe-area-inset-left, 0px);
+  --safe-right:   env(safe-area-inset-right, 0px);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { height: 100%; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  font-family: var(--font-family);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  min-height: 100dvh;
+  font-size: var(--fs-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: auto;
+}
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+input, select, textarea {
+  font-family: inherit;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: 16px;
+  touch-action: manipulation;
+}
+img { max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+
+/* ═══════════════════════════════════════════════════════════
+   LAYOUT WRAPPER
+   ═══════════════════════════════════════════════════════════ */
+#app-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════════════════════════ */
+#header {
+  background: var(--header-grad);
+  color: var(--header-text);
+  padding: 16px 20px 32px;
+  padding-top: calc(16px + var(--safe-top));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  text-align: center;
+  overflow: hidden;
+}
+#header::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.05);
+}
+#header::after {
+  content: '';
+  position: absolute;
+  bottom: -18px; left: 0; right: 0;
+  height: 36px;
+  background: var(--bg);
+  border-radius: 55% 55% 0 0 / 100% 100% 0 0;
+}
+#logo-img {
+  width: 52px; height: 52px;
+  min-width: 52px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.18);
+  border: 1.5px solid rgba(255,255,255,.38);
+  padding: 4px;
+  display: block;
+  position: relative; z-index: 1;
+}
+#header-school {
+  font-size: var(--fs-lg);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: #fff;
+  position: relative; z-index: 1;
+}
+#header-title {
+  font-size: var(--fs-sm);
+  color: rgba(255,255,255,.75);
+  position: relative; z-index: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NAVIGATION TABS
+   ═══════════════════════════════════════════════════════════ */
+#tabs {
+  display: flex;
+  background: var(--card);
+  border-bottom: 1.5px solid var(--border);
+  position: -webkit-sticky;
+  position: sticky;
+  top: calc(var(--header-h) - 18px);
+  z-index: 199;
+  box-shadow: 0 1px 8px var(--shadow);
+}
+.tab-btn {
+  flex: 1;
+  padding: 13px 4px 11px;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--slate);
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  transition: color .2s, border-color .2s, background .2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  white-space: nowrap;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.tab-btn.active {
+  color: var(--violet-dk);
+  border-bottom-color: var(--violet);
+  font-weight: 800;
+}
+.tab-btn:hover { background: var(--violet-xlt); }
+
+/* ═══════════════════════════════════════════════════════════
+   CONTENT AREA
+   ═══════════════════════════════════════════════════════════ */
+#content-area { flex: 1; overflow-x: hidden; }
+.page { display: none; padding: var(--spacing-md); }
+.page.active { display: block; }
+
+/* ═══════════════════════════════════════════════════════════
+   CARD
+   ═══════════════════════════════════════════════════════════ */
+.card {
+  background: var(--card);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  box-shadow: 0 2px 16px var(--shadow);
+  margin-bottom: var(--spacing-md);
+  border: 1.5px solid var(--border);
+  transition: box-shadow .2s;
+}
+.card:hover { box-shadow: 0 4px 24px var(--shadow-md); }
+.card h3 {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--violet-dk);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FORM CONTROLS
+   ═══════════════════════════════════════════════════════════ */
+.form-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.form-group { flex: 1; min-width: 130px; }
+.form-group label {
+  display: block;
+  font-size: var(--fs-label);
+  font-weight: 600;
+  color: var(--ink2);
+  margin-bottom: 5px;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--input-bg);
+  transition: border-color .2s, box-shadow .2s;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 36px;
+}
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px rgba(124,58,237,.12);
+}
+input[type="date"] {
+  min-height: 44px;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--ink);
+}
+input[type="date"]::-webkit-datetime-edit { color: var(--ink); }
+input[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; }
+
+/* ═══════════════════════════════════════════════════════════
+   BUTTONS (base)
+   ═══════════════════════════════════════════════════════════ */
+.btn {
+  padding: 11px 18px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-btn);
+  font-weight: 700;
+  transition: background .2s, transform .1s, box-shadow .2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  white-space: nowrap;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--violet-deep), var(--violet));
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(124,58,237,0.35);
+}
+.btn-primary:hover { background: linear-gradient(135deg, var(--violet), var(--violet-dk)); box-shadow: 0 5px 18px rgba(124,58,237,0.45); }
+
+.btn-save-attendance {
+  background: linear-gradient(135deg, var(--violet-deep), var(--violet));
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(124,58,237,.4);
+  transition: background .2s, transform .1s, box-shadow .2s, opacity .2s;
+}
+.btn-save-attendance:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(124,58,237,.5); }
+.btn-save-attendance:active { transform: scale(0.97); }
+.btn-save-attendance:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+
+.btn-success { background: #2e7d32; color: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+.btn-success:hover { background: #388e3c; }
+.btn-danger  { background: var(--rose); color: #fff; }
+.btn-danger:hover { background: var(--rose-dk); }
+.btn-outline {
+  background: var(--card);
+  color: var(--violet-dk);
+  border: 2px solid var(--violet);
+}
+.btn-outline:hover { background: var(--violet-lt); }
+.btn-tg  { background: #0088cc; color: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.15); }
+.btn-tg:hover { background: #006fa8; }
+.btn-sm  { padding: 7px 14px; font-size: var(--fs-sm); min-height: 36px; }
+.btn:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+
+/* ═══════════════════════════════════════════════════════════
+   BULK BUTTONS (มา/สาย/ลา/ขาด ทุกคน)
+   ═══════════════════════════════════════════════════════════ */
+.bulk-btns { display: grid; grid-template-columns: repeat(4,1fr); gap: 6px; margin-bottom: 12px; }
+.bulk-btn {
+  padding: 9px 6px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  font-weight: 800;
+  border: 2px solid;
+  cursor: pointer;
+  transition: background .15s, color .15s, transform .1s;
+  text-align: center;
+  min-height: 44px;
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.bulk-btn:active { transform: scale(0.96); }
+.bulk-ม { background: var(--emerald-lt); color: var(--emerald-dk); border-color: var(--emerald); }
+.bulk-ม:hover { background: var(--emerald); color: #fff; }
+.bulk-ส { background: var(--amber-lt);   color: var(--amber-dk);   border-color: var(--amber); }
+.bulk-ส:hover { background: var(--amber); color: #fff; }
+.bulk-ล { background: var(--blue-lt);    color: var(--blue-dk);    border-color: var(--blue); }
+.bulk-ล:hover { background: var(--blue); color: #fff; }
+.bulk-ข { background: var(--rose-lt);    color: var(--rose-dk);    border-color: var(--rose); }
+.bulk-ข:hover { background: var(--rose); color: #fff; }
+
+/* ═══════════════════════════════════════════════════════════
+   STUDENT TABLE
+   ═══════════════════════════════════════════════════════════ */
+#student-table-wrap {
+  max-height: 55vh;
+  overflow-y: auto;
+  overflow-x: auto;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border);
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+table { width: 100%; border-collapse: collapse; }
+thead { position: -webkit-sticky; position: sticky; top: 0; z-index: 10; }
+thead th {
+  background: var(--violet-deep);
+  color: #fff;
+  padding: 10px 8px;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+}
+tbody tr { border-bottom: 1px solid var(--border); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--violet-xlt); }
+td { padding: 8px 8px; font-size: var(--fs-td); vertical-align: middle; color: var(--text); }
+td.td-no   { width: 36px; text-align: center; font-weight: 700; color: var(--slate); }
+td.td-id-hidden { display: none; }
+th.th-id-hidden { display: none; }
+td.td-name { font-weight: 600; min-width: 100px; }
+td.td-status { white-space: nowrap; }
+td.td-id   { width: 70px; font-size: var(--fs-xs); color: var(--text3); }
+td.td-room { white-space: nowrap; font-size: var(--fs-xs); color: var(--slate); font-weight: 700; }
+
+/* แถวนักเรียนไฮไลต์ตามสถานะ */
+tbody tr.row-ม { background: #f0fdf4; }
+tbody tr.row-ส { background: #fffbeb; }
+tbody tr.row-ล { background: #eff6ff; }
+tbody tr.row-ข { background: #fff5f5; }
+tbody tr.row-ม:hover { background: #dcfce7; }
+tbody tr.row-ส:hover { background: #fef9c3; }
+tbody tr.row-ล:hover { background: #dbeafe; }
+tbody tr.row-ข:hover { background: #fee2e2; }
+
+/* ═══════════════════════════════════════════════════════════
+   STATUS TOGGLE BUTTONS (stu-btn style — same as HR system)
+   ═══════════════════════════════════════════════════════════ */
+.stu-toggle { display: flex; gap: 4px; flex-shrink: 0; flex-wrap: wrap; }
+.stu-btn {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 2px solid;
+  transition: all .15s;
+  white-space: nowrap;
+  touch-action: manipulation;
+  background: #fff;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 34px;
+}
+.stu-ม { border-color: var(--emerald); color: var(--emerald-dk); }
+.stu-ม.active {
+  background: var(--emerald); color: #fff;
+  border-color: var(--emerald-dk);
+  box-shadow: 0 2px 6px rgba(5,150,105,.35);
+}
+.stu-ส { border-color: var(--amber); color: var(--amber-dk); }
+.stu-ส.active {
+  background: var(--amber); color: #fff;
+  border-color: var(--amber-dk);
+  box-shadow: 0 2px 6px rgba(217,119,6,.35);
+}
+.stu-ล { border-color: var(--blue); color: var(--blue-dk); }
+.stu-ล.active {
+  background: var(--blue); color: #fff;
+  border-color: var(--blue-dk);
+  box-shadow: 0 2px 6px rgba(37,99,235,.35);
+}
+.stu-ข { border-color: var(--rose); color: var(--rose-dk); }
+.stu-ข.active {
+  background: var(--rose); color: #fff;
+  border-color: var(--rose-dk);
+  box-shadow: 0 2px 6px rgba(225,29,72,.35);
+}
+
+/* stu-btn saving state */
+.stu-btn:disabled { opacity: .45; cursor: not-allowed; }
+/* stu-btn saving spinner overlay on row */
+tr.row-saving td { opacity: .6; pointer-events: none; }
+
+/* ═══════════════════════════════════════════════════════════
+   BADGE / SUMMARY
+   ═══════════════════════════════════════════════════════════ */
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; border-radius: 20px; font-size: var(--fs-xs); font-weight: 700; }
+.badge-success { background: var(--emerald-lt); color: var(--emerald-dk); }
+.badge-warn    { background: var(--amber-lt);   color: var(--amber-dk); }
+
+.summary-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin: 10px 0; }
+.sum-box     { padding: 10px 8px; border-radius: var(--radius-sm); text-align: center; border: 2px solid transparent; }
+.sum-box .num { font-size: var(--fs-xl); font-weight: 800; line-height: 1.1; display: block; }
+.sum-box .lbl { font-size: var(--fs-xs); margin-top: 2px; font-weight: 700; }
+.sum-ม { background: var(--emerald-lt); color: var(--emerald-dk); border-color: #86efac; }
+.sum-ส { background: var(--amber-lt);   color: var(--amber-dk);   border-color: #fbbf24; }
+.sum-ล { background: var(--blue-lt);    color: var(--blue-dk);    border-color: #60a5fa; }
+.sum-ข { background: var(--rose-lt);    color: var(--rose-dk);    border-color: #f87171; }
+
+/* ═══════════════════════════════════════════════════════════
+   STATUS PILL (report table)
+   ═══════════════════════════════════════════════════════════ */
+.status-pill { display: inline-block; padding: 3px 9px; border-radius: 12px; font-size: var(--fs-xs); font-weight: 800; }
+.sp-ม { background: var(--emerald-lt); color: var(--emerald-dk); }
+.sp-ส { background: var(--amber-lt);   color: var(--amber-dk); }
+.sp-ล { background: var(--blue-lt);    color: var(--blue-dk); }
+.sp-ข { background: var(--rose-lt);    color: var(--rose-dk); }
+.sp-- { background: #f1f5f9; color: var(--slate); }
+
+/* ═══════════════════════════════════════════════════════════
+   OVERVIEW
+   ═══════════════════════════════════════════════════════════ */
+.ov-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ov-box  { padding: 14px 10px; border-radius: var(--radius-sm); text-align: center; }
+.ov-checked   { background: var(--emerald-lt); color: var(--emerald-dk); }
+.ov-unchecked { background: var(--rose-lt);    color: var(--rose-dk); }
+.ov-box .ov-num { font-size: 28px; font-weight: 800; line-height: 1.1; }
+.ov-box .ov-lbl { font-size: var(--fs-xs); margin-top: 3px; font-weight: 600; }
+.room-list { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.room-chip { padding: 3px 10px; border-radius: 20px; font-size: var(--fs-xs); font-weight: 700; }
+.rc-ok { background: var(--emerald-lt); color: var(--emerald-dk); border: 1.5px solid #86efac; }
+.rc-no { background: var(--rose-lt);    color: var(--rose-dk);    border: 1.5px solid #f87171; }
+
+/* ═══════════════════════════════════════════════════════════
+   CHART
+   ═══════════════════════════════════════════════════════════ */
+.chart-container { position: relative; width: 100%; }
+canvas { max-width: 100%; display: block; margin: 0 auto; }
+
+/* ═══════════════════════════════════════════════════════════
+   REPORT TABLE
+   ═══════════════════════════════════════════════════════════ */
+#report-wrap {
+  max-height: 50vh;
+  overflow: auto;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border);
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+#pivot-wrap {
+  overflow: auto;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border);
+  max-height: 50vh;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SETTINGS
+   ═══════════════════════════════════════════════════════════ */
+#logo-preview { width: 80px; height: 80px; object-fit: contain; display: block; margin: 8px auto; border-radius: var(--radius-sm); border: 2px solid var(--border); }
+.settings-form .form-group { margin-bottom: 12px; }
+.settings-section { background: var(--violet-xlt); border-radius: 12px; padding: 14px; margin-bottom: 14px; border: 1.5px solid #c4b5fd; }
+.settings-section-title { font-size: var(--fs-sm); font-weight: 800; color: var(--violet-deep); margin-bottom: 12px; border-bottom: 1.5px solid #c4b5fd; padding-bottom: 7px; }
+
+#font-preview-text {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-base);
+  color: var(--ink);
+  line-height: 1.6;
+  transition: font-family .2s;
+}
+
+/* Font size buttons */
+.fontsize-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.fs-btn {
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  border: 2px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color .15s, background .15s, color .15s;
+  min-height: 44px;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.fs-btn.active { border-color: var(--violet); background: var(--violet); color: #fff; }
+.fs-btn:hover  { border-color: var(--violet-dk); }
+
+/* Font size data-fs */
+[data-fs="small"]  { --fs-base:12px;--fs-sm:11px;--fs-xs:10px;--fs-lg:14px;--fs-xl:17px;--fs-h3:12px;--fs-label:11px;--fs-td:12px;--fs-btn:12px; }
+[data-fs="medium"] { --fs-base:14px;--fs-sm:12px;--fs-xs:11px;--fs-lg:16px;--fs-xl:20px;--fs-h3:14px;--fs-label:12px;--fs-td:13px;--fs-btn:14px; }
+[data-fs="large"]  { --fs-base:16px;--fs-sm:14px;--fs-xs:12px;--fs-lg:18px;--fs-xl:23px;--fs-h3:16px;--fs-label:13px;--fs-td:15px;--fs-btn:15px; }
+[data-fs="xlarge"] { --fs-base:18px;--fs-sm:15px;--fs-xs:13px;--fs-lg:21px;--fs-xl:26px;--fs-h3:17px;--fs-label:14px;--fs-td:16px;--fs-btn:17px; }
+
+/* Telegram send buttons */
+.tg-send-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+.tg-send-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-btn);
+  font-weight: 700;
+  background: #0088cc;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background .2s, transform .1s, box-shadow .2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+  min-height: 52px;
+  text-align: left;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.tg-send-btn:hover   { background: #006fa8; box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+.tg-send-btn:active  { transform: scale(0.98); }
+.tg-send-btn:disabled{ opacity: .55; cursor: not-allowed; transform: none; }
+.tg-send-btn .tg-icon  { font-size: 22px; flex-shrink: 0; }
+.tg-send-btn .tg-info  { display: flex; flex-direction: column; }
+.tg-send-btn .tg-label { font-size: var(--fs-base); font-weight: 700; line-height: 1.2; }
+.tg-send-btn .tg-sub   { font-size: var(--fs-xs); opacity: .85; margin-top: 2px; }
+
+/* ═══════════════════════════════════════════════════════════
+   ADMIN LOCK OVERLAY  (+ color lock overlay)
+   ═══════════════════════════════════════════════════════════ */
+#admin-lock, #color-lock {
+  position: fixed; inset: 0;
+  background: rgba(76,29,149,.75);
+  display: none; align-items: center; justify-content: center;
+  z-index: 9000;
+  padding: calc(20px + var(--safe-top)) 20px calc(20px + var(--safe-bottom));
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.lock-box {
+  background: var(--card);
+  border-radius: var(--radius-xl);
+  padding: 40px 28px;
+  text-align: center;
+  max-width: 360px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(124,58,237,.3);
+  border: 2px solid #c4b5fd;
+}
+.lock-icon  { font-size: 56px; margin-bottom: 14px; line-height: 1; }
+.lock-title { font-size: var(--fs-xl); font-weight: 800; color: var(--violet-dk); margin-bottom: 8px; }
+.lock-sub   { font-size: var(--fs-sm); color: var(--slate); margin-bottom: 20px; }
+.lock-input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 6px;
+  background: var(--input-bg);
+  color: var(--ink);
+  margin-bottom: 12px;
+  height: 54px;
+  -webkit-appearance: none; appearance: none;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+}
+.lock-input:focus { border-color: var(--violet); box-shadow: 0 0 0 3px rgba(124,58,237,.14); outline: none; }
+.lock-err { color: var(--rose); font-size: var(--fs-sm); min-height: 20px; margin-bottom: 8px; }
+
+/* ═══════════════════════════════════════════════════════════
+   SPINNER
+   ═══════════════════════════════════════════════════════════ */
+#spinner {
+  position: fixed; inset: 0;
+  background: rgba(240,238,255,.88);
+  display: none; flex-direction: column;
+  align-items: center; justify-content: center;
+  z-index: 8000;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.spin-circle {
+  width: 52px; height: 52px;
+  border: 5px solid #ddd6fe;
+  border-top-color: var(--violet);
+  border-radius: 50%;
+  -webkit-animation: spin .75s linear infinite;
+  animation: spin .75s linear infinite;
+}
+@-webkit-keyframes spin { to { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }
+@keyframes spin         { to { transform: rotate(360deg); } }
+#spinner p { margin-top: 14px; font-weight: 700; color: var(--violet-dk); font-size: var(--fs-base); }
+
+/* ═══════════════════════════════════════════════════════════
+   TOAST
+   ═══════════════════════════════════════════════════════════ */
+#toast {
+  position: fixed;
+  bottom: calc(24px + var(--safe-bottom));
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--ink);
+  color: #fff;
+  padding: 13px 26px;
+  border-radius: 28px;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(0,0,0,.25);
+  z-index: 7000;
+  opacity: 0;
+  transition: all .35s cubic-bezier(0.34,1.56,0.64,1);
+  pointer-events: none;
+  text-align: center;
+  max-width: min(90vw,400px);
+  white-space: pre-wrap;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+#toast.toast-ok  { background: var(--emerald); }
+#toast.toast-err { background: var(--rose); }
+
+/* ═══════════════════════════════════════════════════════════
+   SUCCESS MODAL
+   ═══════════════════════════════════════════════════════════ */
+#success-modal {
+  position: fixed; inset: 0;
+  background: rgba(76,29,149,.6);
+  display: none; align-items: center; justify-content: center;
+  z-index: 6000;
+  padding: calc(20px + var(--safe-top)) 20px calc(20px + var(--safe-bottom));
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+#success-modal.show { display: flex; }
+.modal-box {
+  background: var(--card);
+  border-radius: var(--radius-xl);
+  padding: 36px 28px 28px;
+  text-align: center;
+  max-width: 380px; width: 100%;
+  box-shadow: 0 24px 64px rgba(124,58,237,.28);
+  -webkit-animation: modalIn .4s cubic-bezier(0.34,1.56,0.64,1);
+  animation: modalIn .4s cubic-bezier(0.34,1.56,0.64,1);
+  overflow: hidden;
+}
+@-webkit-keyframes modalIn { from { -webkit-transform: scale(0.75); opacity: 0; } to { -webkit-transform: scale(1); opacity: 1; } }
+@keyframes modalIn { from { transform: scale(0.75); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.modal-icon  { font-size: 64px; line-height: 1; margin-bottom: 14px; }
+.modal-title { font-size: var(--fs-xl); font-weight: 800; color: var(--violet-dk); margin-bottom: 8px; }
+.modal-sub   { font-size: var(--fs-base); color: var(--slate); margin-bottom: 20px; white-space: pre-wrap; }
+.modal-close {
+  background: linear-gradient(135deg, var(--violet-deep), var(--violet));
+  color: #fff;
+  padding: 12px 36px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-lg);
+  font-weight: 800;
+  cursor: pointer;
+  min-height: 48px;
+  box-shadow: 0 4px 16px rgba(124,58,237,.4);
+  -webkit-appearance: none; appearance: none;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+}
+.modal-close:hover { background: linear-gradient(135deg, var(--violet), var(--violet-dk)); }
+.modal-countdown-wrap { margin-top: 14px; height: 5px; background: var(--violet-lt); border-radius: 99px; overflow: hidden; }
+.modal-countdown-bar  { height: 100%; background: var(--violet); border-radius: 99px; width: 100%; transition: width linear; }
+.modal-countdown-txt  { font-size: var(--fs-xs); color: var(--slate); margin-top: 6px; text-align: center; }
+
+/* ═══════════════════════════════════════════════════════════
+   ★ COLOR TEAM SYSTEM (ใหม่)
+   ═══════════════════════════════════════════════════════════ */
+.color-dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(0,0,0,.12); vertical-align: middle; flex-shrink: 0; }
+.color-select-wrap { position: relative; }
+.color-select-wrap .color-dot { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+.color-select-wrap select { padding-left: 34px; }
+/* แถบหัวข้อสีทีม */
+.team-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;
+  padding: 10px 14px; margin-bottom: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--team, var(--violet));
+  color: var(--team-ink, #fff);
+  font-weight: 800; font-size: var(--fs-base);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.team-banner small { font-weight: 600; opacity: .9; font-size: var(--fs-xs); }
+#student-card thead th { background: var(--team-dk, var(--violet-deep)); color: var(--team-ink, #fff); }
+
+/* สแกนรหัสนักเรียน */
+.scan-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+.scan-row input {
+  flex: 1; min-width: 160px; height: 44px; padding: 10px 12px;
+  border: 2px dashed var(--violet); border-radius: var(--radius-sm);
+  background: var(--input-bg); color: var(--ink); font-size: 16px;
+}
+.scan-row input:focus { border-style: solid; box-shadow: 0 0 0 3px rgba(124,58,237,.12); }
+#qr-reader { width: 100%; max-width: 360px; margin: 0 auto 12px; display: none; border-radius: var(--radius-sm); overflow: hidden; }
+tr.row-flash td { animation: flashRow 1.2s ease-out; }
+@keyframes flashRow { 0% { background: #fde68a; } 100% { background: transparent; } }
+
+/* กระดานคะแนน */
+.lb-list { display: flex; flex-direction: column; gap: 10px; }
+.lb-row {
+  display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: center;
+  padding: 12px 14px; border-radius: var(--radius-md);
+  border: 2px solid var(--border); background: var(--card);
+  border-left: 8px solid var(--c, var(--slate));
+}
+.lb-rank { font-size: 26px; font-weight: 800; text-align: center; line-height: 1; color: var(--slate); }
+.lb-rank.r1 { color: #ca8a04; }
+.lb-rank.r2 { color: #64748b; }
+.lb-rank.r3 { color: #b45309; }
+.lb-name { font-weight: 800; font-size: var(--fs-lg); display: flex; align-items: center; gap: 8px; }
+.lb-sub  { font-size: var(--fs-xs); color: var(--slate); margin-top: 3px; }
+.lb-bar  { height: 8px; border-radius: 99px; background: var(--border); margin-top: 8px; overflow: hidden; }
+.lb-bar > i { display: block; height: 100%; border-radius: 99px; background: var(--c, var(--violet)); }
+.lb-score { text-align: right; font-weight: 800; font-size: var(--fs-xl); line-height: 1.1; }
+.lb-score small { display: block; font-size: var(--fs-xs); font-weight: 600; color: var(--slate); }
+.lb-updated { font-size: var(--fs-xs); color: var(--slate); margin-top: 8px; text-align: right; }
+
+/* ตารางสถิติรายสี / ตั้งค่าสี */
+.cs-table th { background: var(--violet-deep); color: #fff; }
+.color-pick-row { display: grid; grid-template-columns: 1fr 56px 1fr; gap: 8px; align-items: center; margin-bottom: 8px; }
+.color-pick-row .cp-name { font-weight: 700; display: flex; align-items: center; gap: 6px; }
+.color-pick-row input[type="color"] { width: 56px; height: 40px; padding: 2px; border: 2px solid var(--border); border-radius: 8px; background: #fff; }
+.color-pick-row input[type="text"] { width: 100%; height: 40px; padding: 8px 10px; border: 2px solid var(--border); border-radius: 8px; background: var(--input-bg); color: var(--ink); font-size: 14px; }
+.mini-list { margin-top: 10px; font-size: var(--fs-sm); }
+.mini-item { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; padding: 8px 10px; border: 1.5px solid var(--border); border-radius: 10px; background: var(--card); margin-bottom: 6px; }
+.mini-item select { height: 38px; padding: 6px 28px 6px 10px; border: 2px solid var(--border); border-radius: 8px; background: var(--input-bg); color: var(--ink); font-size: 14px; }
+.hint { font-size: var(--fs-xs); color: var(--slate); margin-bottom: 8px; }
+
+/* พื้นที่พิมพ์รายงานแยกสี */
+#print-area { display: none; }
+.print-sec { margin-bottom: 18px; }
+.print-sec h2 { font-size: 16px; margin-bottom: 4px; }
+.print-sec .print-meta { font-size: 12px; margin-bottom: 6px; color: #333; }
+.print-sec table { font-size: 11px; }
+.print-sec th, .print-sec td { border: 1px solid #999; padding: 3px 5px; }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+  :root { --header-h: 118px; --tab-h: 56px; --spacing-md: 18px; }
+  #header { padding: 18px 24px 32px; padding-top: calc(18px + var(--safe-top)); }
+  #logo-img  { width: 64px; height: 64px; }
+  .tab-btn   { padding: 15px 8px 13px; font-size: var(--fs-base); }
+  .page      { padding: var(--spacing-lg); }
+  .card      { padding: var(--spacing-lg); border-radius: var(--radius-lg); }
+  .form-row  { flex-wrap: nowrap; }
+  .bulk-btns { gap: 8px; }
+  .bulk-btn  { font-size: var(--fs-base); }
+  #student-table-wrap { max-height: 60vh; }
+  .tg-send-btns { flex-direction: row; }
+  .tg-send-btn  { width: auto; flex: 1; }
+}
+@media (min-width: 1024px) {
+  :root { --header-h: 116px; }
+  #header { padding: 16px 36px 32px; padding-top: calc(16px + var(--safe-top)); }
+  .tab-btn   { font-size: calc(var(--fs-base) + 1px); padding: 16px 12px 14px; }
+  .page      { padding: var(--spacing-xl); }
+  #page-check    { max-width: 900px; margin: 0 auto; }
+  #page-settings { max-width: 860px; margin: 0 auto; }
+  #page-board    { max-width: 860px; margin: 0 auto; }
+  #student-table-wrap { max-height: 65vh; }
+  #report-wrap { max-height: 55vh; }
+  #pivot-wrap  { max-height: 55vh; }
+}
+@media (min-width: 1280px) {
+  #page-report { max-width: 1200px; margin: 0 auto; }
+  .report-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); }
+  .report-grid-full { grid-column: 1 / -1; }
+}
+@media (max-width: 400px) {
+  :root { --spacing-md: 10px; }
+  #logo-img  { width: 44px; height: 44px; }
+  .tab-btn   { font-size: 11px; padding: 11px 2px 9px; gap: 3px; }
+  .card      { padding: 12px; border-radius: 10px; }
+  .bulk-btns { gap: 4px; }
+  .bulk-btn  { padding: 7px 4px; font-size: 11px; gap: 2px; }
+  .bulk-btn .bulk-icon { display: none; }
+  .stu-btn   { padding: 4px 7px; font-size: 10px; }
+  .lb-row    { grid-template-columns: 34px 1fr auto; gap: 8px; }
+  .color-pick-row { grid-template-columns: 1fr 50px; }
+  .color-pick-row input[type="text"] { grid-column: 1 / -1; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  #student-table-wrap { max-height: 45vh; }
+  #header { padding: 8px 16px 28px; padding-left: calc(16px + var(--safe-left)); padding-right: calc(16px + var(--safe-right)); }
+  #logo-img { width: 36px; height: 36px; }
+  .card { margin-bottom: 10px; padding: 10px 12px; }
+}
+@media print {
+  #header, #tabs, #spinner, #toast, #success-modal, #admin-lock, #color-lock,
+  .bulk-btns, .btn-save-attendance, #btn-save { display: none !important; }
+  body { background: white; color: black; font-size: 12px; }
+  .card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+  .page { display: block !important; padding: 8px; }
+  #student-table-wrap, #report-wrap, #pivot-wrap { max-height: none; overflow: visible; }
+  thead th { background: #4c1d95 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  /* พิมพ์รายงานแยกสี: แสดงเฉพาะ #print-area */
+  body.printing-report #app-wrapper { display: none !important; }
+  body.printing-report #print-area { display: block !important; }
+  body.printing-report .print-sec { page-break-after: always; break-after: page; }
+  body.printing-report .print-sec:last-child { page-break-after: auto; break-after: auto; }
+  body.printing-report .print-sec table { width: 100%; }
+  body.printing-report .print-sec thead th { background: #eee !important; color: #000 !important; }
+  body.printing-report .team-banner { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+:focus-visible { outline: 3px solid var(--violet); outline-offset: 2px; border-radius: 4px; }
+body.modal-open { overflow: hidden; position: fixed; width: 100%; }
+</style>
+</head>
+
+<body id="app-body" data-fs="medium">
+
+<!-- ADMIN LOCK OVERLAY -->
+<div id="admin-lock" role="dialog" aria-modal="true" aria-label="ยืนยันรหัสผ่าน">
+  <div class="lock-box">
+    <div class="lock-icon" aria-hidden="true">🔐</div>
+    <div class="lock-title">ตั้งค่าระบบ</div>
+    <div class="lock-sub">กรุณาใส่รหัสผ่านผู้ดูแลระบบ</div>
+    <input type="password" class="lock-input" id="lock-input" placeholder="••••" maxlength="20"
+      autocomplete="current-password" autocorrect="off" autocapitalize="off" spellcheck="false"
+      onkeydown="if(event.key==='Enter')verifyPassword()"
+      aria-label="รหัสผ่าน">
+    <div class="lock-err" id="lock-err" role="alert" aria-live="polite"></div>
+    <button class="btn btn-primary" style="width:100%;margin-bottom:8px" onclick="verifyPassword()">🔓 เข้าสู่ระบบ</button>
+    <button class="btn btn-outline" style="width:100%" onclick="closeAdminLock()">ยกเลิก</button>
+  </div>
+</div>
+
+<!-- COLOR LOCK OVERLAY (รหัสผ่านรายสี สำหรับครูประจำสี) -->
+<div id="color-lock" role="dialog" aria-modal="true" aria-label="รหัสผ่านสี">
+  <div class="lock-box">
+    <div class="lock-icon" aria-hidden="true">🎨</div>
+    <div class="lock-title" id="clock-title">สีนี้ต้องใช้รหัสผ่าน</div>
+    <div class="lock-sub">กรุณาใส่รหัสผ่านของครูประจำสี (หรือรหัสผู้ดูแลระบบ)</div>
+    <input type="password" class="lock-input" id="clock-input" placeholder="••••" maxlength="30"
+      autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+      onkeydown="if(event.key==='Enter')verifyColorPwd()"
+      aria-label="รหัสผ่านสี">
+    <div class="lock-err" id="clock-err" role="alert" aria-live="polite"></div>
+    <button class="btn btn-primary" style="width:100%;margin-bottom:8px" onclick="verifyColorPwd()">🔓 ยืนยัน</button>
+    <button class="btn btn-outline" style="width:100%" onclick="cancelColorLock()">ยกเลิก</button>
+  </div>
+</div>
+
+<!-- APP WRAPPER -->
+<div id="app-wrapper">
+
+  <!-- HEADER -->
+  <header id="header" role="banner">
+    <img id="logo-img" src="" alt="โลโก้โรงเรียน" onerror="this.style.display='none'">
+    <div id="header-school">กำลังโหลด...</div>
+    <div id="header-title">ระบบเช็คชื่อกิจกรรมสี</div>
+  </header>
+
+  <!-- TABS NAV -->
+  <nav id="tabs" role="tablist" aria-label="เมนูหลัก">
+    <button class="tab-btn active" role="tab" aria-selected="true" onclick="switchTab('check')">
+      <span class="tab-emoji">✅</span> เช็คชื่อ
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" onclick="switchTab('report')">
+      <span class="tab-emoji">📊</span> รายงาน
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" onclick="switchTab('board')">
+      <span class="tab-emoji">🏆</span> คะแนนสี
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" onclick="tryOpenSettings()">
+      <span class="tab-emoji">⚙️</span> ตั้งค่า
+    </button>
+  </nav>
+
+  <!-- CONTENT AREA -->
+  <main id="content-area">
+
+    <!-- ══════════ TAB: CHECK ══════════ -->
+    <div id="page-check" class="page active" role="tabpanel" aria-label="เช็คชื่อ">
+
+      <div class="card">
+        <h3>📅 เลือกวันที่ สี และกิจกรรม</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="chk-date">วันที่</label>
+            <input type="date" id="chk-date" aria-label="เลือกวันที่"
+              autocorrect="off" autocapitalize="off" onchange="onChkMetaChange()">
+          </div>
+          <div class="form-group">
+            <label for="chk-activity">กิจกรรม / รอบ</label>
+            <input type="text" id="chk-activity" list="activity-list" value="ทั่วไป" maxlength="60"
+              aria-label="ชื่อกิจกรรมหรือรอบ" autocomplete="off" autocorrect="off" spellcheck="false"
+              onchange="onChkMetaChange()">
+            <datalist id="activity-list"></datalist>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="chk-color">สี</label>
+            <div class="color-select-wrap">
+              <span class="color-dot" id="chk-color-dot" style="background:#e2e8f0"></span>
+              <select id="chk-color" aria-label="เลือกสี" onchange="onColorSelectChange('chk-color','chk-color-dot',onChkChange)"></select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="chk-level">ระดับชั้น (เว้นว่าง=ทุกระดับชั้น)</label>
+            <select id="chk-level" aria-label="เลือกระดับชั้น" onchange="onChkChange()"></select>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-height:28px">
+          <span id="chk-badge" style="display:none" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <div class="card" id="student-card" style="display:none">
+        <h3>👥 รายชื่อนักเรียน <span id="st-room-lbl" style="font-weight:400;font-size:var(--fs-sm);color:var(--slate)"></span></h3>
+        <div class="team-banner" id="team-banner">
+          <span id="team-banner-name">สี</span>
+          <small id="team-banner-sub"></small>
+        </div>
+
+        <div class="scan-row">
+          <input type="text" id="scan-input" placeholder="สแกน/พิมพ์รหัสนักเรียน แล้วกด Enter = มา"
+            autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" inputmode="text"
+            aria-label="สแกนรหัสนักเรียน" onkeydown="onScanKey(event)">
+          <button class="btn btn-outline btn-sm" id="btn-cam" onclick="toggleCamera()">📷 เปิดกล้องสแกน</button>
+        </div>
+        <div id="qr-reader"></div>
+
+        <div class="bulk-btns" role="group" aria-label="เปลี่ยนสถานะทุกคน">
+          <button class="bulk-btn bulk-ม" onclick="setAll('ม')" aria-label="ทุกคน: มา"><span class="bulk-icon">✅</span> ทุกคน: มา</button>
+          <button class="bulk-btn bulk-ส" onclick="setAll('ส')" aria-label="ทุกคน: สาย"><span class="bulk-icon">⏰</span> ทุกคน: สาย</button>
+          <button class="bulk-btn bulk-ล" onclick="setAll('ล')" aria-label="ทุกคน: ลา"><span class="bulk-icon">📝</span> ทุกคน: ลา</button>
+          <button class="bulk-btn bulk-ข" onclick="setAll('ข')" aria-label="ทุกคน: ขาด"><span class="bulk-icon">❌</span> ทุกคน: ขาด</button>
+        </div>
+        <div id="student-table-wrap">
+          <table aria-label="รายชื่อนักเรียน">
+            <thead>
+              <tr>
+                <th class="td-no" scope="col">เลขที่</th>
+                <th scope="col">ห้อง</th>
+                <th class="th-id-hidden" scope="col">รหัส</th>
+                <th class="td-name" scope="col">ชื่อ-สกุล</th>
+                <th class="td-status" scope="col">สถานะ</th>
+              </tr>
+            </thead>
+            <tbody id="student-tbody"></tbody>
+          </table>
+        </div>
+        <div style="margin-top:16px;text-align:center">
+          <button class="btn btn-save-attendance" onclick="saveAttendance()" id="btn-save"
+            style="width:100%;max-width:420px;padding:14px;font-size:var(--fs-lg)">
+            💾 บันทึกการเช็คชื่อ
+          </button>
+        </div>
+      </div>
+
+    </div><!-- end page-check -->
+
+    <!-- ══════════ TAB: REPORT ══════════ -->
+    <div id="page-report" class="page" role="tabpanel" aria-label="รายงาน">
+
+      <div class="card">
+        <h3>🔍 ค้นหารายงาน</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rpt-color">สี (เว้นว่าง=ทุกสี)</label>
+            <div class="color-select-wrap">
+              <span class="color-dot" id="rpt-color-dot" style="background:#e2e8f0"></span>
+              <select id="rpt-color" aria-label="สี" onchange="onColorSelectChange('rpt-color','rpt-color-dot',null)"></select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="rpt-activity">กิจกรรม (เว้นว่าง=ทั้งหมด)</label>
+            <select id="rpt-activity" aria-label="กิจกรรม"></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rpt-level">ระดับชั้น (เว้นว่าง=ทั้งหมด)</label>
+            <select id="rpt-level" aria-label="ระดับชั้น"
+              onchange="rebuildRoomSelect('rpt-level','rpt-room')">
+              <option value="">-- ทุกระดับชั้น --</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="rpt-room">ห้อง (เว้นว่าง=ทั้งหมด)</label>
+            <select id="rpt-room" aria-label="ห้อง">
+              <option value="">-- ทุกห้อง --</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rpt-start">วันเริ่ม</label>
+            <input type="date" id="rpt-start" aria-label="วันที่เริ่ม" autocorrect="off" autocapitalize="off">
+          </div>
+          <div class="form-group">
+            <label for="rpt-end">วันสิ้นสุด</label>
+            <input type="date" id="rpt-end" aria-label="วันที่สิ้นสุด" autocorrect="off" autocapitalize="off">
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="loadReport()">📊 ดูรายงาน</button>
+          <button class="btn btn-outline" onclick="exportCSV()">⬇️ ส่งออก CSV</button>
+          <button class="btn btn-outline" onclick="printReport()">🖨️ พิมพ์ / PDF (แยกสี)</button>
+        </div>
+      </div>
+
+      <div class="report-grid">
+        <div class="card" id="rpt-summary-card" style="display:none">
+          <h3>📈 ภาพรวมทั้งโรงเรียน
+            <span id="rpt-today-lbl" style="font-size:var(--fs-xs);font-weight:400;color:var(--slate)"></span>
+          </h3>
+          <div class="ov-grid" id="ov-boxes"></div>
+          <div id="ov-checked-list"   style="margin-top:10px"></div>
+          <div id="ov-unchecked-list" style="margin-top:6px"></div>
+        </div>
+        <div class="card" id="rpt-daily-card" style="display:none">
+          <h3>📅 สรุปรายวัน</h3>
+          <div class="chart-container"><canvas id="daily-chart"></canvas></div>
+        </div>
+        <div class="card" id="rpt-colorstat-card" style="display:none">
+          <h3>🎨 สรุปรายสี และ % การเข้าร่วม</h3>
+          <p class="hint">เข้าร่วม = มา + สาย ÷ จำนวนทั้งหมด</p>
+          <div style="overflow:auto">
+            <table class="cs-table" aria-label="สรุปรายสี">
+              <thead>
+                <tr>
+                  <th scope="col">สี</th><th scope="col">มา</th><th scope="col">สาย</th>
+                  <th scope="col">ลา</th><th scope="col">ขาด</th><th scope="col">รวม</th><th scope="col">เข้าร่วม</th>
+                </tr>
+              </thead>
+              <tbody id="colorstat-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card" id="rpt-compare-card" style="display:none">
+          <h3>⚖️ เปรียบเทียบสี</h3>
+          <div class="chart-container"><canvas id="compare-chart"></canvas></div>
+          <div class="chart-container" style="margin-top:14px"><canvas id="radar-chart"></canvas></div>
+        </div>
+      </div>
+
+      <div class="card report-grid-full" id="rpt-pivot-card" style="display:none">
+        <h3>📋 สรุปรายสี (pivot)</h3>
+        <div id="pivot-wrap"></div>
+      </div>
+
+      <div class="card report-grid-full" id="rpt-table-card" style="display:none">
+        <h3>📄 ข้อมูลทั้งหมด <small id="rpt-count" style="font-weight:400;color:var(--slate)"></small></h3>
+        <p style="font-size:var(--fs-xs);color:var(--slate);margin-bottom:8px">✏️ กดปุ่มสถานะในตารางด้านล่างเพื่อแก้ไขสถานะรายบุคคลได้ทันที</p>
+        <div class="summary-row" id="rpt-sum-row"></div>
+        <div id="report-wrap">
+          <table aria-label="ข้อมูลการเช็คชื่อ">
+            <thead>
+              <tr>
+                <th scope="col">วันที่</th>
+                <th scope="col">กิจกรรม</th>
+                <th scope="col">สี</th>
+                <th scope="col">ห้อง</th>
+                <th scope="col" style="text-align:center">เลขที่</th>
+                <th scope="col">รหัส</th>
+                <th scope="col">ชื่อ-สกุล</th>
+                <th scope="col">สถานะ</th>
+                <th scope="col">เวลาบันทึก</th>
+              </tr>
+            </thead>
+            <tbody id="report-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- end page-report -->
+
+    <!-- ══════════ TAB: LEADERBOARD ══════════ -->
+    <div id="page-board" class="page" role="tabpanel" aria-label="คะแนนสี">
+      <div class="card">
+        <h3>🏆 กระดานคะแนนสี</h3>
+        <p class="hint">คะแนนรวม = % เข้าร่วม (มา+สาย) + คะแนนพิเศษที่ผู้ดูแลเพิ่ม · อัปเดตอัตโนมัติทุก 60 วินาที</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="lb-start">วันเริ่ม (เว้นว่าง=ทั้งหมด)</label>
+            <input type="date" id="lb-start" aria-label="วันเริ่ม" onchange="loadBoard()">
+          </div>
+          <div class="form-group">
+            <label for="lb-end">วันสิ้นสุด (เว้นว่าง=ทั้งหมด)</label>
+            <input type="date" id="lb-end" aria-label="วันสิ้นสุด" onchange="loadBoard()">
+          </div>
+          <div class="form-group">
+            <label for="lb-activity">กิจกรรม</label>
+            <select id="lb-activity" aria-label="กิจกรรม" onchange="loadBoard()"></select>
+          </div>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="loadBoard()">🔄 รีเฟรช</button>
+      </div>
+      <div class="card">
+        <div class="lb-list" id="lb-list"><p class="hint">กำลังรอข้อมูล...</p></div>
+        <div class="lb-updated" id="lb-updated"></div>
+      </div>
+    </div><!-- end page-board -->
+
+    <!-- ══════════ TAB: SETTINGS ══════════ -->
+    <div id="page-settings" class="page" role="tabpanel" aria-label="ตั้งค่า">
+      <div class="card settings-form">
+        <h3>⚙️ ตั้งค่าระบบ</h3>
+
+        <div class="settings-section">
+          <div class="settings-section-title">🏫 ข้อมูลโรงเรียน</div>
+          <div class="form-group" style="text-align:center">
+            <label for="set-logo">โลโก้โรงเรียน (URL รูปภาพ)</label>
+            <input type="url" id="set-logo" placeholder="https://..." oninput="previewLogo()"
+              autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
+            <img id="logo-preview" src="" alt="ตัวอย่างโลโก้" onerror="this.src=''">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="set-school">ชื่อโรงเรียน</label>
+              <input type="text" id="set-school" autocomplete="organization" autocorrect="off" spellcheck="false">
+            </div>
+            <div class="form-group">
+              <label for="set-title">ชื่อเว็บไซต์</label>
+              <input type="text" id="set-title" autocorrect="off" spellcheck="false">
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-section-title">🚪 ระดับชั้น &amp; ห้องเรียน</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="set-levels">ระดับชั้น (คั่นด้วย ,)</label>
+              <input type="text" id="set-levels" placeholder="ม.1,ม.2,ม.3"
+                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
+            </div>
+            <div class="form-group">
+              <label for="set-rooms">ห้อง (คั่นด้วย ,)</label>
+              <input type="text" id="set-rooms" placeholder="1,2,3,..."
+                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-section-title">🎨 สีของกิจกรรม &amp; รหัสผ่านครูประจำสี</div>
+          <div class="form-group">
+            <label for="set-colors">ชื่อสี (คั่นด้วย ,)</label>
+            <input type="text" id="set-colors" placeholder="แดง,น้ำเงิน,เขียว,เหลือง" oninput="rebuildColorPickers()"
+              autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
+          </div>
+          <p class="hint">เลือกรหัสสีของแต่ละทีม และตั้งรหัสผ่านครูประจำสี (เว้นว่าง = ไม่เปลี่ยน · ถ้าไม่เคยตั้ง = ใครก็ใช้สีนี้ได้ · พิมพ์ - เพื่อลบรหัสผ่าน) ชื่อสีต้องตรงกับคอลัมน์ color ในชีต Students</p>
+          <div id="color-pickers"></div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-section-title">📨 การแจ้งเตือน Telegram</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="set-tg-token">Telegram Bot Token</label>
+              <input type="text" id="set-tg-token"
+                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
+            </div>
+            <div class="form-group">
+              <label for="set-tg-chat">Telegram Chat ID</label>
+              <input type="text" id="set-tg-chat"
+                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-section-title">📤 ส่งสรุปไปยัง Telegram</div>
+          <p style="font-size:var(--fs-sm);color:var(--slate);margin-bottom:12px">
+            กดปุ่มด้านล่างเพื่อส่งรายงานสรุปการเช็คชื่อกิจกรรมสี (รายสี) ไปยัง Telegram ทันที
+          </p>
+          <div class="tg-send-btns">
+            <button class="tg-send-btn" id="btn-tg-today" onclick="sendTgSummary('today')">
+              <span class="tg-icon">📲</span>
+              <span class="tg-info">
+                <span class="tg-label">ส่งสรุปวันนี้</span>
+                <span class="tg-sub">→ Telegram ทันที</span>
+              </span>
+            </button>
+            <button class="tg-send-btn" id="btn-tg-week" onclick="sendTgSummary('week')">
+              <span class="tg-icon">📲</span>
+              <span class="tg-info">
+                <span class="tg-label">ส่งสรุปรายสัปดาห์นี้</span>
+                <span class="tg-sub">→ Telegram ทันที</span>
+              </span>
+            </button>
+            <button class="tg-send-btn" id="btn-tg-month" onclick="sendTgSummary('month')">
+              <span class="tg-icon">📲</span>
+              <span class="tg-info">
+                <span class="tg-label">ส่งสรุปรายเดือนนี้</span>
+                <span class="tg-sub">→ Telegram ทันที</span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-section-title">🏅 เพิ่มคะแนนพิเศษให้สี</div>
+          <p class="hint">ใช้ค่าติดลบเพื่อหักคะแนน · คะแนนรวมบนกระดาน = % เข้าร่วม + คะแนนพิเศษ</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sc-date">วันที่</label>
+              <input type="date" id="sc-date">
+            </div>
+            <div class="form-group">
+              <label for="sc-color">สี</label>
+              <select id="sc-color"></select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sc-activity">กิจกรรม</label>
+              <input type="text" id="sc-activity" value="ทั่วไป" maxlength="60" autocomplete="off" spellcheck="false">
+            </div>
+            <div class="form-group">
+              <label for="sc-points">คะแนน</label>
+              <input type="number" id="sc-points" step="0.5" placeholder="เช่น 10 หรือ -5" inputmode="decimal">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="sc-note">หมายเหตุ</label>
+            <input type="text" id="sc-note" maxlength="120" autocomplete="off" spellcheck="false">
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="addScore()">➕ เพิ่มคะแนน</button>
+          <div class="mini-list" id="score-log"></div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-section-title">🔀 ย้ายนักเรียนข้ามสี</div>
+          <p class="hint">ค้นหาด้วยชื่อหรือรหัสนักเรียน แล้วเลือกสีใหม่ ระบบจะบันทึกประวัติการเปลี่ยนสีไว้ในชีต ColorHistory</p>
+          <div class="scan-row">
+            <input type="text" id="mv-query" placeholder="ชื่อ หรือ รหัสนักเรียน" autocomplete="off" spellcheck="false"
+              onkeydown="if(event.key==='Enter')searchMove()">
+            <button class="btn btn-outline btn-sm" onclick="searchMove()">🔍 ค้นหา</button>
+          </div>
+          <div class="mini-list" id="mv-results"></div>
+          <div class="settings-section-title" style="margin-top:14px">🕘 ประวัติการเปลี่ยนสีล่าสุด</div>
+          <div class="mini-list" id="mv-history"></div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-section-title">🔡 ขนาดตัวอักษร</div>
+          <div class="fontsize-btns">
+            <button class="fs-btn" data-fs="small"  onclick="setFontSize('small')">เล็ก (S)</button>
+            <button class="fs-btn active" data-fs="medium" onclick="setFontSize('medium')">กลาง (M)</button>
+            <button class="fs-btn" data-fs="large"  onclick="setFontSize('large')">ใหญ่ (L)</button>
+            <button class="fs-btn" data-fs="xlarge" onclick="setFontSize('xlarge')">ใหญ่มาก (XL)</button>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-section-title">🔤 ฟอนต์ภาษาไทย (Google Fonts)</div>
+          <div class="form-group">
+            <label for="set-font">เลือกฟอนต์</label>
+            <select id="set-font" onchange="previewFont()" aria-label="เลือกฟอนต์"></select>
+          </div>
+          <div id="font-preview-text">
+            ตัวอย่างข้อความ: นักเรียนชั้น ม.1/1 จำนวน 35 คน รหัสประจำตัว 10001<br>
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789
+          </div>
+          <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn btn-outline btn-sm" onclick="applyFont()">✅ ใช้ฟอนต์นี้</button>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-section-title">🔑 เปลี่ยนรหัสผ่านผู้ดูแล</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="set-newpwd">รหัสผ่านใหม่</label>
+              <input type="password" id="set-newpwd" placeholder="ใส่รหัสผ่านใหม่"
+                autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false">
+            </div>
+            <div class="form-group">
+              <label for="set-confirmpwd">ยืนยันรหัสผ่าน</label>
+              <input type="password" id="set-confirmpwd" placeholder="ยืนยันรหัสผ่านใหม่"
+                autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false">
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+          <button class="btn btn-primary" onclick="saveSettings()" id="btn-save-settings">💾 บันทึกการตั้งค่า</button>
+          <button class="btn btn-outline" onclick="loadSettings()">🔄 โหลดค่าปัจจุบัน</button>
+          <button class="btn btn-outline" style="color:var(--rose-dk);border-color:var(--rose)" onclick="lockSettings()">🔒 ล็อคหน้าตั้งค่า</button>
+        </div>
+      </div>
+    </div><!-- end page-settings -->
+
+  </main>
+</div><!-- end app-wrapper -->
+
+<!-- พื้นที่พิมพ์รายงานแยกสี -->
+<div id="print-area"></div>
+
+<!-- SPINNER -->
+<div id="spinner" role="status" aria-live="polite" aria-label="กำลังโหลด">
+  <div class="spin-circle"></div>
+  <p id="spinner-msg">กำลังโหลด...</p>
+</div>
+
+<!-- TOAST -->
+<div id="toast" role="alert" aria-live="assertive"></div>
+
+<!-- SUCCESS MODAL -->
+<div id="success-modal" role="dialog" aria-modal="true" aria-label="บันทึกสำเร็จ">
+  <div class="modal-box">
+    <div class="modal-icon" aria-hidden="true">✅</div>
+    <div class="modal-title" id="modal-title">บันทึกสำเร็จ!</div>
+    <div class="modal-sub"   id="modal-sub"></div>
+    <button class="modal-close" onclick="closeModal()">ตกลง</button>
+    <div class="modal-countdown-wrap">
+      <div class="modal-countdown-bar" id="modal-countdown-bar"></div>
+    </div>
+    <div class="modal-countdown-txt" id="modal-countdown-txt">ปิดอัตโนมัติใน 2 นาที</div>
+  </div>
+</div>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+<script>
+// ══════════════════════════════════════════════
+//  GOOGLE FONTS LIST
+// ══════════════════════════════════════════════
+var GOOGLE_FONTS = [
+  { name:'K2D',              label:'K2D',                                cat:'thai' },
+  { name:'Sarabun',          label:'Sarabun (สระบุรี)',                  cat:'thai' },
+  { name:'Noto Sans Thai',   label:'Noto Sans Thai',                     cat:'thai' },
+  { name:'Kanit',            label:'Kanit (กนิต)',                        cat:'thai' },
+  { name:'Prompt',           label:'Prompt (พรอมต์)',                    cat:'thai' },
+  { name:'Mitr',             label:'Mitr (มิตร)',                         cat:'thai' },
+  { name:'Chakra Petch',     label:'Chakra Petch (จักรพัฒน์)',           cat:'thai' },
+  { name:'Chonburi',         label:'Chonburi (ชลบุรี)',                  cat:'thai' },
+  { name:'Charmonman',       label:'Charmonman (ฉลองการ)',               cat:'thai' },
+  { name:'Fahkwang',         label:'Fahkwang (ฟ้ากว้าง)',                cat:'thai' },
+  { name:'IBM Plex Sans Thai',       label:'IBM Plex Sans Thai',         cat:'thai' },
+  { name:'IBM Plex Sans Thai Looped',label:'IBM Plex Sans Thai Looped',  cat:'thai' },
+  { name:'Kodchasan',        label:'Kodchasan (โคชสาน)',                 cat:'thai' },
+  { name:'KoHo',             label:'KoHo',                               cat:'thai' },
+  { name:'Krub',             label:'Krub (กรุบ)',                        cat:'thai' },
+  { name:'Mali',             label:'Mali (มะลิ)',                        cat:'thai' },
+  { name:'Niramit',          label:'Niramit (นิรมิต)',                   cat:'thai' },
+  { name:'Noto Serif Thai',  label:'Noto Serif Thai',                    cat:'thai' },
+  { name:'Pridi',            label:'Pridi (ปริดี)',                      cat:'thai' },
+  { name:'Srisakdi',         label:'Srisakdi (ศรีสักดิ์)',              cat:'thai' },
+  { name:'Taviraj',          label:'Taviraj (ทวีราช)',                  cat:'thai' },
+  { name:'Thasadith',        label:'Thasadith (ทัศนดิษฐ์)',            cat:'thai' },
+  { name:'Trirong',          label:'Trirong (ตรีรงค์)',                  cat:'thai' },
+  { name:'Itim',             label:'Itim (อิทิม)',                       cat:'thai' },
+  { name:'Bai Jamjuree',     label:'Bai Jamjuree (ใบจำปุรี)',           cat:'thai' },
+  { name:'Charm',            label:'Charm (ชาร์ม)',                      cat:'thai' },
+  { name:'Roboto',           label:'Roboto',      cat:'latin' },
+  { name:'Open Sans',        label:'Open Sans',   cat:'latin' },
+  { name:'Lato',             label:'Lato',        cat:'latin' },
+  { name:'Montserrat',       label:'Montserrat',  cat:'latin' },
+  { name:'Poppins',          label:'Poppins',     cat:'latin' },
+  { name:'Nunito',           label:'Nunito',      cat:'latin' },
+  { name:'Inter',            label:'Inter',       cat:'latin' },
+  { name:'Raleway',          label:'Raleway',     cat:'latin' },
+  { name:'Source Sans 3',    label:'Source Sans 3', cat:'latin' },
+  { name:'Ubuntu',           label:'Ubuntu',      cat:'latin' },
+  { name:'Quicksand',        label:'Quicksand',   cat:'latin' },
+  { name:'Josefin Sans',     label:'Josefin Sans',cat:'latin' },
+  { name:'Oswald',           label:'Oswald',      cat:'latin' },
+  { name:'Merriweather',     label:'Merriweather',cat:'latin' },
+  { name:'Playfair Display', label:'Playfair Display', cat:'latin' },
+  { name:'Comfortaa',        label:'Comfortaa',   cat:'latin' },
+  { name:'Exo 2',            label:'Exo 2',       cat:'latin' },
+  { name:'Fira Sans',        label:'Fira Sans',   cat:'latin' },
+  { name:'Barlow',           label:'Barlow',      cat:'latin' },
+  { name:'Rubik',            label:'Rubik',       cat:'latin' },
+  { name:'DM Sans',          label:'DM Sans',     cat:'latin' },
+  { name:'Work Sans',        label:'Work Sans',   cat:'latin' },
+  { name:'Manrope',          label:'Manrope',     cat:'latin' },
+  { name:'Plus Jakarta Sans',label:'Plus Jakarta Sans', cat:'latin' }
+];
+
+// ══════════════════════════════════════════════
+//  GLOBAL STATE
+// ══════════════════════════════════════════════
+var APP_CFG       = {};
+var students      = [];
+var statuses      = {};   // key = index ของนักเรียนใน students[]
+var reportRows    = [];   // เก็บข้อมูลแถวรายงานปัจจุบัน
+var dailyChartInst       = null;
+var compareChartInst     = null;
+var radarChartInst       = null;
+var adminUnlocked        = false;
+var adminPwd             = '';   // รหัสผู้ดูแล (เก็บในหน่วยความจำเฉพาะตอนปลดล็อกตั้งค่า)
+var colorPwds            = {};   // รหัสผ่านรายสีที่ยืนยันแล้ว
+var lastPwd              = '';
+var pendingLock          = null;
+var currentFs            = 'medium';
+var currentFont          = 'K2D';
+var pendingFont          = 'K2D';
+var loadedFonts          = {};
+var chkAutoLoadTimer     = null;
+var modalAutoCloseTimer  = null;
+var modalCountdownTimer  = null;
+var MODAL_COUNTDOWN_SEC  = 120;
+var _scrollY = 0;
+var boardTimer           = null;
+var printTimer           = null;
+var qrScanner            = null;
+var camOn                = false;
+var lastScan             = { code:'', t:0 };
+var PALETTE = ['#e11d48','#2563eb','#059669','#eab308','#7c3aed','#ea580c','#0891b2','#db2777'];
+
+var STATUS_LABEL = { ม:'มา', ส:'สาย', ล:'ลา', ข:'ขาด' };
+
+// ══════════════════════════════════════════════
+//  iOS SCROLL LOCK
+// ══════════════════════════════════════════════
+function lockBodyScroll() {
+  _scrollY = window.scrollY || window.pageYOffset;
+  document.body.classList.add('modal-open');
+  document.body.style.top = '-' + _scrollY + 'px';
+}
+function unlockBodyScroll() {
+  document.body.classList.remove('modal-open');
+  document.body.style.top = '';
+  window.scrollTo(0, _scrollY);
+}
+
+// ══════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════
+(function(){
+  try { APP_CFG = <?!= cfg ?>; } catch(e) { APP_CFG = {}; }
+  applyConfig();
+  setTodayDates();
+  buildFontSelect();
+  applyStoredFs();
+  updateSafeAreas();
+  loadActivities();
+  window.addEventListener('resize', updateSafeAreas);
+  window.addEventListener('orientationchange', function(){ setTimeout(updateSafeAreas, 300); });
+  window.addEventListener('afterprint', endPrint);
+  boardTimer = setInterval(function(){
+    var pg = document.getElementById('page-board');
+    if (pg && pg.classList.contains('active')) loadBoard(true);
+  }, 60000);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function(){
+      var f = APP_CFG.fontFamily || 'K2D';
+      applyFontToPage(f);
+    });
+  }
+})();
+
+function updateSafeAreas() {
+  document.body.style.minHeight = window.innerHeight + 'px';
+}
+
+function applyConfig() {
+  var cfg = APP_CFG;
+  document.getElementById('header-school').textContent = cfg.schoolName || 'โรงเรียน';
+  document.getElementById('header-title').textContent  = cfg.webTitle   || 'ระบบเช็คชื่อกิจกรรมสี';
+  var logoEl = document.getElementById('logo-img');
+  if (cfg.school_Logo) { logoEl.src = cfg.school_Logo; logoEl.style.display = ''; }
+  else { logoEl.style.display = 'none'; }
+  if (cfg.fontFamily) {
+    currentFont = cfg.fontFamily; pendingFont = cfg.fontFamily;
+    applyFontToPage(cfg.fontFamily);
+  }
+  buildLevelSelects();
+  buildColorSelects();
+}
+
+function setTodayDates() {
+  var today = new Date();
+  var iso = today.getFullYear() + '-' +
+            String(today.getMonth()+1).padStart(2,'0') + '-' +
+            String(today.getDate()).padStart(2,'0');
+  document.getElementById('chk-date').value  = iso;
+  document.getElementById('rpt-start').value = iso;
+  document.getElementById('rpt-end').value   = iso;
+  document.getElementById('sc-date').value   = iso;
+}
+
+// ══════════════════════════════════════════════
+//  FONT SYSTEM
+// ══════════════════════════════════════════════
+function buildFontSelect() {
+  var sel = document.getElementById('set-font');
+  sel.innerHTML = '';
+  var grpThai = document.createElement('optgroup'); grpThai.label = '🇹🇭 ฟอนต์ไทย';
+  GOOGLE_FONTS.filter(function(f){ return f.cat === 'thai'; }).forEach(function(f){
+    var o = document.createElement('option'); o.value = f.name; o.textContent = f.label; grpThai.appendChild(o);
+  });
+  sel.appendChild(grpThai);
+  var grpLat = document.createElement('optgroup'); grpLat.label = '🌐 ฟอนต์สากล';
+  GOOGLE_FONTS.filter(function(f){ return f.cat === 'latin'; }).forEach(function(f){
+    var o = document.createElement('option'); o.value = f.name; o.textContent = f.label; grpLat.appendChild(o);
+  });
+  sel.appendChild(grpLat);
+  sel.value = currentFont;
+}
+
+function loadGoogleFont(fontName, cb) {
+  if (loadedFonts[fontName]) { if (cb) cb(); return; }
+  var encoded = fontName.replace(/ /g, '+');
+  var url = 'https://fonts.googleapis.com/css2?family=' + encoded + ':wght@300;400;500;600;700;800&display=swap&subset=thai,latin';
+  var existing = document.getElementById('gf-' + encoded);
+  if (existing) { loadedFonts[fontName] = true; if (cb) cb(); return; }
+  var link = document.createElement('link');
+  link.id   = 'gf-' + encoded; link.rel = 'stylesheet'; link.href = url;
+  link.onload = function() {
+    loadedFonts[fontName] = true;
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function(){ if (cb) cb(); }); }
+    else { if (cb) cb(); }
+  };
+  link.onerror = function() { if (cb) cb(); };
+  document.head.appendChild(link);
+}
+
+function previewFont() {
+  var name = document.getElementById('set-font').value;
+  pendingFont = name;
+  var preview = document.getElementById('font-preview-text');
+  loadGoogleFont(name, function(){ preview.style.fontFamily = "'" + name + "', 'K2D', sans-serif"; });
+}
+
+function applyFont() {
+  var name = document.getElementById('set-font').value;
+  pendingFont = name;
+  loadGoogleFont(name, function(){
+    applyFontToPage(name); currentFont = name;
+    showToast('เปลี่ยนฟอนต์เป็น: ' + name + ' ✅', 'ok');
+  });
+}
+
+function applyFontToPage(fontName) {
+  loadGoogleFont(fontName, function(){
+    document.documentElement.style.setProperty('--font-family', "'" + fontName + "', 'K2D', 'Sarabun', 'Noto Sans Thai', sans-serif");
+    var link = document.getElementById('google-font-link');
+    if (link) link.href = 'https://fonts.googleapis.com/css2?family=' + fontName.replace(/ /g,'+') + ':wght@300;400;500;600;700;800&display=swap';
+  });
+}
+
+// ══════════════════════════════════════════════
+//  FONT SIZE
+// ══════════════════════════════════════════════
+function applyStoredFs() {
+  var fs = APP_CFG.fontSize || 'medium';
+  setFontSize(fs, true);
+}
+
+function setFontSize(size, silent) {
+  currentFs = size;
+  document.getElementById('app-body').setAttribute('data-fs', size);
+  document.querySelectorAll('.fs-btn').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-fs') === size);
+  });
+  if (!silent) showToast('ปรับขนาดตัวอักษร: ' + size, 'ok');
+}
+
+// ══════════════════════════════════════════════
+//  COLOR HELPERS
+// ══════════════════════════════════════════════
+function colorInfo(name) {
+  var list = APP_CFG.colorList || [];
+  for (var i = 0; i < list.length; i++) { if (list[i].name === name) return list[i]; }
+  return { name: name, code: '#64748b' };
+}
+function colorCode(name) { return colorInfo(name).code; }
+
+function inkFor(hex) {
+  var h = String(hex || '#7c3aed').replace('#','');
+  if (h.length === 3) h = h.split('').map(function(x){ return x + x; }).join('');
+  var r = parseInt(h.substr(0,2),16), g = parseInt(h.substr(2,2),16), b = parseInt(h.substr(4,2),16);
+  var lum = (0.299*r + 0.587*g + 0.114*b) / 255;
+  return lum > 0.62 ? '#1e1b4b' : '#ffffff';
+}
+
+function isLocked(color) {
+  return (APP_CFG.lockedColors || []).indexOf(color) > -1;
+}
+
+function pwdFor(color) {
+  return adminPwd || (color && colorPwds[color]) || lastPwd || '';
+}
+
+function updateColorDot(dotId, color) {
+  var d = document.getElementById(dotId);
+  if (d) d.style.background = color ? colorCode(color) : '#e2e8f0';
+}
+
+function fillColorSelect(id, placeholder, showLock) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var prev = el.value;
+  el.innerHTML = '';
+  var o0 = document.createElement('option'); o0.value = ''; o0.textContent = placeholder; el.appendChild(o0);
+  (APP_CFG.colorList || []).forEach(function(c){
+    var o = document.createElement('option');
+    o.value = c.name;
+    o.textContent = c.name + (showLock && isLocked(c.name) ? ' 🔒' : '');
+    o.style.color = c.code;
+    el.appendChild(o);
+  });
+  if (prev) el.value = prev;
+}
+
+function buildColorSelects() {
+  fillColorSelect('chk-color', '-- เลือกสี --', true);
+  fillColorSelect('rpt-color', '-- ทุกสี --', true);
+  fillColorSelect('sc-color',  '-- เลือกสี --', false);
+  updateColorDot('chk-color-dot', document.getElementById('chk-color').value);
+  updateColorDot('rpt-color-dot', document.getElementById('rpt-color').value);
+}
+
+// ขอสิทธิ์เข้าสีที่ตั้งรหัสผ่านไว้ (ครูประจำสี)
+function ensureColorAccess(color, okCb, cancelCb) {
+  if (!isLocked(color) || adminPwd || colorPwds[color]) { if (okCb) okCb(); return; }
+  pendingLock = { color: color, ok: okCb, cancel: cancelCb };
+  lockBodyScroll();
+  document.getElementById('clock-title').textContent = 'สี' + color + ' ต้องใช้รหัสผ่าน';
+  document.getElementById('clock-input').value = '';
+  document.getElementById('clock-err').textContent = '';
+  document.getElementById('color-lock').style.display = 'flex';
+  setTimeout(function(){ document.getElementById('clock-input').focus(); }, 100);
+}
+
+function verifyColorPwd() {
+  if (!pendingLock) return;
+  var pwd = document.getElementById('clock-input').value;
+  if (!pwd) { document.getElementById('clock-err').textContent = 'กรุณาใส่รหัสผ่าน'; return; }
+  var color = pendingLock.color;
+  google.script.run
+    .withSuccessHandler(function(res){
+      if (res && res.ok) {
+        colorPwds[color] = pwd; lastPwd = pwd;
+        document.getElementById('color-lock').style.display = 'none';
+        unlockBodyScroll();
+        var cb = pendingLock && pendingLock.ok; pendingLock = null;
+        if (cb) cb();
+      } else {
+        document.getElementById('clock-err').textContent = '❌ รหัสผ่านไม่ถูกต้อง';
+        document.getElementById('clock-input').value = '';
+        document.getElementById('clock-input').focus();
+      }
+    })
+    .withFailureHandler(function(err){
+      document.getElementById('clock-err').textContent = 'เกิดข้อผิดพลาด: ' + (err.message || '');
+    })
+    .verifyColorPassword(color, pwd);
+}
+
+function cancelColorLock() {
+  document.getElementById('color-lock').style.display = 'none';
+  unlockBodyScroll();
+  var cb = pendingLock && pendingLock.cancel; pendingLock = null;
+  if (cb) cb();
+}
+
+function onColorSelectChange(selId, dotId, cb) {
+  var sel = document.getElementById(selId);
+  var color = sel.value;
+  updateColorDot(dotId, color);
+  if (!color) { if (cb) cb(); return; }
+  ensureColorAccess(color,
+    function(){ if (cb) cb(); },
+    function(){ sel.value = ''; updateColorDot(dotId, ''); if (cb) cb(); }
+  );
+}
+
+// ══════════════════════════════════════════════
+//  DROPDOWNS
+// ══════════════════════════════════════════════
+function buildLevelSelects() {
+  var levels = APP_CFG.levels || [];
+  var chkLevel = document.getElementById('chk-level');
+  var prevChk = chkLevel.value;
+  chkLevel.innerHTML = '<option value="">-- ทุกระดับชั้น --</option>';
+  levels.forEach(function(lv){
+    var opt = document.createElement('option'); opt.value = lv; opt.textContent = lv; chkLevel.appendChild(opt);
+  });
+  if (prevChk) chkLevel.value = prevChk;
+  var rptLevel = document.getElementById('rpt-level');
+  var prevRpt = rptLevel.value;
+  rptLevel.innerHTML = '<option value="">-- ทุกระดับชั้น --</option>';
+  levels.forEach(function(lv){
+    var opt = document.createElement('option'); opt.value = lv; opt.textContent = lv; rptLevel.appendChild(opt);
+  });
+  if (prevRpt) rptLevel.value = prevRpt;
+  rebuildRoomSelect('rpt-level','rpt-room');
+}
+
+function rebuildRoomSelect(levelId, roomId) {
+  var rooms = APP_CFG.rooms || [];
+  var el = document.getElementById(roomId);
+  el.innerHTML = '<option value="">-- ทุกห้อง --</option>';
+  rooms.forEach(function(r){
+    var opt = document.createElement('option'); opt.value = r; opt.textContent = r; el.appendChild(opt);
+  });
+}
+
+function loadActivities() {
+  google.script.run
+    .withSuccessHandler(function(res){
+      var list = (res && res.activities) || ['ทั่วไป'];
+      var dl = document.getElementById('activity-list');
+      dl.innerHTML = '';
+      list.forEach(function(a){ var o = document.createElement('option'); o.value = a; dl.appendChild(o); });
+      ['rpt-activity','lb-activity'].forEach(function(id){
+        var el = document.getElementById(id);
+        var prev = el.value;
+        el.innerHTML = '<option value="">-- ทุกกิจกรรม --</option>';
+        list.forEach(function(a){ var o = document.createElement('option'); o.value = a; o.textContent = a; el.appendChild(o); });
+        if (prev) el.value = prev;
+      });
+    })
+    .withFailureHandler(function(){})
+    .getActivities();
+}
+
+// ══════════════════════════════════════════════
+//  AUTO-LOAD ON COLOR / LEVEL CHANGE
+// ══════════════════════════════════════════════
+function onChkChange() {
+  var color = document.getElementById('chk-color').value;
+  if (!color) {
+    document.getElementById('student-card').style.display = 'none';
+    document.getElementById('chk-badge').style.display    = 'none';
+    stopCamera();
+    return;
+  }
+  clearTimeout(chkAutoLoadTimer);
+  chkAutoLoadTimer = setTimeout(loadStudents, 250);
+}
+
+function onChkMetaChange() {
+  var color = document.getElementById('chk-color').value;
+  if (color && students.length) checkBadge(color);
+}
+
+// ══════════════════════════════════════════════
+//  TAB SWITCH
+// ══════════════════════════════════════════════
+function switchTab(tab) {
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+  document.getElementById('page-' + tab).classList.add('active');
+  var idx = { check:0, report:1, board:2, settings:3 }[tab];
+  var btns = document.querySelectorAll('.tab-btn');
+  btns[idx].classList.add('active'); btns[idx].setAttribute('aria-selected','true');
+  if (tab === 'settings') loadSettings();
+  if (tab === 'report') loadActivities();
+  if (tab === 'board') { loadActivities(); loadBoard(); }
+  if (tab !== 'check') stopCamera();
+  window.scrollTo(0, 0);
+}
+
+function tryOpenSettings() {
+  if (adminUnlocked) { switchTab('settings'); }
+  else {
+    lockBodyScroll();
+    document.getElementById('admin-lock').style.display = 'flex';
+    document.getElementById('lock-input').value = '';
+    document.getElementById('lock-err').textContent = '';
+    setTimeout(function(){ document.getElementById('lock-input').focus(); }, 100);
+  }
+}
+
+function closeAdminLock() {
+  document.getElementById('admin-lock').style.display = 'none';
+  unlockBodyScroll();
+  if (!adminUnlocked) {
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+    document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn')[0].classList.add('active');
+    document.querySelectorAll('.tab-btn')[0].setAttribute('aria-selected','true');
+    document.getElementById('page-check').classList.add('active');
+  }
+}
+
+function lockSettings() {
+  adminUnlocked = false;
+  adminPwd = ''; lastPwd = '';
+  switchTab('check');
+  showToast('ล็อคหน้าตั้งค่าแล้ว 🔒', 'ok');
+}
+
+function verifyPassword() {
+  var pwd = document.getElementById('lock-input').value;
+  if (!pwd) { document.getElementById('lock-err').textContent = 'กรุณาใส่รหัสผ่าน'; return; }
+  document.getElementById('lock-err').textContent = '';
+  google.script.run
+    .withSuccessHandler(function(res){
+      if (res.ok) {
+        adminUnlocked = true;
+        adminPwd = pwd; lastPwd = pwd;
+        document.getElementById('admin-lock').style.display = 'none';
+        unlockBodyScroll();
+        switchTab('settings');
+      } else {
+        document.getElementById('lock-err').textContent = '❌ รหัสผ่านไม่ถูกต้อง';
+        document.getElementById('lock-input').value = '';
+        document.getElementById('lock-input').focus();
+      }
+    })
+    .withFailureHandler(function(err){
+      document.getElementById('lock-err').textContent = 'เกิดข้อผิดพลาด: ' + (err.message || '');
+    })
+    .verifyAdminPassword(pwd);
+}
+
+// ══════════════════════════════════════════════
+//  SPINNER & TOAST
+// ══════════════════════════════════════════════
+function showSpinner(msg) {
+  document.getElementById('spinner-msg').textContent = msg || 'กำลังโหลด...';
+  document.getElementById('spinner').style.display = 'flex';
+}
+function hideSpinner() { document.getElementById('spinner').style.display = 'none'; }
+
+function showToast(msg, type) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'show ' + (type === 'err' ? 'toast-err' : type === 'ok' ? 'toast-ok' : '');
+  clearTimeout(t._to);
+  t._to = setTimeout(function(){ t.className = ''; }, 3200);
+}
+
+// ══════════════════════════════════════════════
+//  SUCCESS MODAL
+// ══════════════════════════════════════════════
+function showSuccessModal(title, sub) {
+  document.getElementById('modal-title').textContent = title || 'บันทึกสำเร็จ!';
+  document.getElementById('modal-sub').textContent   = sub   || '';
+  lockBodyScroll();
+  document.getElementById('success-modal').classList.add('show');
+  startModalCountdown();
+}
+
+function fmtCountdown(sec) {
+  if (sec <= 0) return '0 วินาที';
+  if (sec >= 60) {
+    var m = Math.floor(sec / 60);
+    var s = sec % 60;
+    return m + ' นาที' + (s > 0 ? ' ' + s + ' วินาที' : '');
+  }
+  return sec + ' วินาที';
+}
+
+function startModalCountdown() {
+  clearTimeout(modalAutoCloseTimer); clearInterval(modalCountdownTimer);
+  var sec = MODAL_COUNTDOWN_SEC, started = Date.now(), total = sec * 1000;
+  var bar = document.getElementById('modal-countdown-bar');
+  var txt = document.getElementById('modal-countdown-txt');
+  bar.style.transition = 'none'; bar.style.width = '100%';
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      bar.style.transition = 'width ' + sec + 's linear';
+      bar.style.width = '0%';
+    });
+  });
+  txt.textContent = 'ปิดอัตโนมัติใน ' + fmtCountdown(sec);
+  modalCountdownTimer = setInterval(function(){
+    var remain = Math.ceil((total - (Date.now() - started)) / 1000);
+    if (remain <= 0) remain = 0;
+    txt.textContent = 'ปิดอัตโนมัติใน ' + fmtCountdown(remain);
+    if (remain <= 0) clearInterval(modalCountdownTimer);
+  }, 1000);
+  modalAutoCloseTimer = setTimeout(closeModal, total);
+}
+
+function closeModal() {
+  clearTimeout(modalAutoCloseTimer); clearInterval(modalCountdownTimer);
+  document.getElementById('success-modal').classList.remove('show');
+  unlockBodyScroll();
+  resetCheckPage();
+}
+
+function resetCheckPage() {
+  stopCamera();
+  document.getElementById('student-card').style.display = 'none';
+  var badge = document.getElementById('chk-badge');
+  badge.style.display = 'none'; badge.innerHTML = '';
+  document.getElementById('chk-level').value = '';
+  document.getElementById('chk-color').value = '';
+  updateColorDot('chk-color-dot', '');
+  students = []; statuses = {};
+  document.getElementById('student-tbody').innerHTML = '';
+  document.getElementById('st-room-lbl').textContent = '';
+}
+
+// ══════════════════════════════════════════════
+//  LOAD STUDENTS  (ตามสี + กรองระดับชั้นได้)
+// ══════════════════════════════════════════════
+function loadStudents() {
+  var color = document.getElementById('chk-color').value;
+  var level = document.getElementById('chk-level').value;
+  if (!color) {
+    document.getElementById('student-card').style.display = 'none';
+    document.getElementById('chk-badge').style.display    = 'none';
+    return;
+  }
+  showSpinner('กำลังโหลดรายชื่อ...');
+  google.script.run
+    .withSuccessHandler(function(res){
+      hideSpinner();
+      if (!res || !res.ok) {
+        if (res && res.needPwd) delete colorPwds[color];
+        document.getElementById('student-card').style.display = 'none';
+        showToast('โหลดรายชื่อไม่สำเร็จ: ' + ((res && res.error) || ''), 'err');
+        return;
+      }
+      students = res.students || [];
+      renderStudents(color, level);
+      checkBadge(color);
+      if (!students.length) {
+        showToast('ไม่พบนักเรียนสี' + color + (level ? ' ระดับ ' + level : '') + '\nตรวจคอลัมน์ color ในชีต Students', 'err');
+      }
+    })
+    .withFailureHandler(function(err){
+      hideSpinner();
+      showToast('โหลดรายชื่อไม่สำเร็จ: ' + (err.message || ''), 'err');
+    })
+    .getStudents(color, level, pwdFor(color));
+}
+
+// ══════════════════════════════════════════════
+//  RENDER STUDENTS
+// ══════════════════════════════════════════════
+function renderStudents(color, level) {
+  var tbody = document.getElementById('student-tbody');
+  tbody.innerHTML = '';
+  statuses = {};
+  students.forEach(function(st, i){ statuses[i] = null; });
+
+  var code = colorCode(color);
+  var card = document.getElementById('student-card');
+  card.style.setProperty('--team', code);
+  card.style.setProperty('--team-dk', code);
+  card.style.setProperty('--team-ink', inkFor(code));
+  document.getElementById('team-banner-name').textContent = '🎨 สี' + color;
+  document.getElementById('team-banner-sub').textContent  = students.length + ' คน' + (level ? ' · ' + level : '');
+
+  var frag = document.createDocumentFragment();
+  students.forEach(function(st, i){
+    var tr = document.createElement('tr');
+    tr.id = 'str-' + i;
+    var btnHtml = ['ม','ส','ล','ข'].map(function(s){
+      return '<button class="stu-btn stu-' + s + '" ' +
+             'onclick="setStu(' + i + ',\'' + s + '\')" ' +
+             'aria-label="' + STATUS_LABEL[s] + '">' +
+             STATUS_LABEL[s] + '</button>';
+    }).join('');
+    tr.innerHTML =
+      '<td class="td-no">' + escHtml(st.no) + '</td>' +
+      '<td class="td-room">' + escHtml(st.room || '') + '</td>' +
+      '<td class="td-id-hidden">' + escHtml(st.student_id || '') + '</td>' +
+      '<td class="td-name">' + escHtml(st.name || '') + '</td>' +
+      '<td class="td-status"><div class="stu-toggle">' + btnHtml + '</div></td>';
+    frag.appendChild(tr);
+  });
+  tbody.appendChild(frag);
+  card.style.display = '';
+  document.getElementById('st-room-lbl').textContent = '— สี' + color + (level ? ' / ' + level : '');
+}
+
+function setRowStatus(i, status) {
+  statuses[i] = status;
+  var tr = document.getElementById('str-' + i);
+  if (!tr) return;
+  tr.className = 'row-' + status;
+  tr.querySelectorAll('.stu-btn').forEach(function(b){
+    var s = b.className.match(/stu-([มสลข])/);
+    b.classList.toggle('active', !!(s && s[1] === status));
+  });
+}
+
+function setStu(i, status) {
+  setRowStatus(i, status);
+}
+
+function setAll(status) {
+  if (!students.length) { showToast('กรุณาโหลดรายชื่อก่อน', 'err'); return; }
+  students.forEach(function(st, i){ setRowStatus(i, status); });
+  showToast('ตั้งทุกคนเป็น ' + STATUS_LABEL[status], 'ok');
+}
+
+// ══════════════════════════════════════════════
+//  สแกน / พิมพ์รหัสนักเรียน (เครื่องสแกนบาร์โค้ด, QR, กล้อง)
+// ══════════════════════════════════════════════
+function onScanKey(ev) {
+  if (ev.key === 'Enter') {
+    ev.preventDefault();
+    var inp = document.getElementById('scan-input');
+    handleScan(inp.value);
+    inp.value = '';
+    inp.focus();
+  }
+}
+
+function handleScan(code) {
+  code = String(code || '').trim();
+  if (!code) return;
+  if (!students.length) { showToast('กรุณาเลือกสีและโหลดรายชื่อก่อน', 'err'); return; }
+  var idx = -1;
+  students.forEach(function(st, i){ if (String(st.student_id).trim() === code) idx = i; });
+  if (idx < 0) { showToast('ไม่พบรหัส ' + code + ' ในรายชื่อนี้', 'err'); return; }
+  setRowStatus(idx, 'ม');
+  var tr = document.getElementById('str-' + idx);
+  if (tr) {
+    tr.classList.add('row-flash');
+    setTimeout(function(){ tr.classList.remove('row-flash'); }, 1300);
+    if (tr.scrollIntoView) tr.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+  showToast('✅ ' + (students[idx].name || code) + ' = มา', 'ok');
+}
+
+function loadQrLib(cb) {
+  if (window.Html5Qrcode) { cb(true); return; }
+  var s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js';
+  s.onload  = function(){ cb(!!window.Html5Qrcode); };
+  s.onerror = function(){ cb(false); };
+  document.head.appendChild(s);
+}
+
+function toggleCamera() {
+  if (camOn) { stopCamera(); return; }
+  loadQrLib(function(ok){
+    if (!ok) { showToast('โหลดตัวสแกนไม่สำเร็จ\nใช้เครื่องสแกนบาร์โค้ดหรือพิมพ์รหัสแทนได้', 'err'); return; }
+    var box = document.getElementById('qr-reader');
+    box.style.display = 'block';
+    qrScanner = new Html5Qrcode('qr-reader');
+    qrScanner.start(
+      { facingMode: 'environment' },
+      { fps: 10, qrbox: { width: 220, height: 220 } },
+      function(text){
+        var now = Date.now();
+        if (text === lastScan.code && now - lastScan.t < 2500) return;
+        lastScan = { code: text, t: now };
+        handleScan(text);
+      },
+      function(){}
+    ).then(function(){
+      camOn = true;
+      document.getElementById('btn-cam').textContent = '⏹ ปิดกล้อง';
+    }).catch(function(){
+      box.style.display = 'none';
+      qrScanner = null; camOn = false;
+      showToast('เปิดกล้องไม่ได้ (เบราว์เซอร์อาจบล็อกกล้องในหน้านี้)\nเปิดลิงก์เว็บแอปตรงๆ หรือใช้เครื่องสแกน/พิมพ์รหัสแทน', 'err');
+    });
+  });
+}
+
+function stopCamera() {
+  if (qrScanner) {
+    var q = qrScanner; qrScanner = null;
+    q.stop().then(function(){ try { q.clear(); } catch(e) {} }).catch(function(){});
+  }
+  camOn = false;
+  var box = document.getElementById('qr-reader');
+  if (box) box.style.display = 'none';
+  var btn = document.getElementById('btn-cam');
+  if (btn) btn.textContent = '📷 เปิดกล้องสแกน';
+}
+
+// ══════════════════════════════════════════════
+//  SAVE ATTENDANCE
+// ══════════════════════════════════════════════
+function saveAttendance() {
+  var color    = document.getElementById('chk-color').value;
+  var date     = document.getElementById('chk-date').value;
+  var activity = (document.getElementById('chk-activity').value || '').trim() || 'ทั่วไป';
+  if (!color) { showToast('กรุณาเลือกสี', 'err'); return; }
+  if (!students.length) { showToast('กรุณาโหลดรายชื่อก่อน', 'err'); return; }
+  var unselected = students.filter(function(st, i){ return !statuses[i]; });
+  if (unselected.length > 0) {
+    showToast('กรุณาเช็คชื่อนักเรียนให้ครบทุกคน\n(ยังไม่ได้เลือก ' + unselected.length + ' คน)', 'err');
+    return;
+  }
+  var entries = students.map(function(st, i){
+    return { room: st.room || '', no: st.no, student_id: st.student_id || '', name: st.name, status: statuses[i] };
+  });
+  var btn = document.getElementById('btn-save');
+  btn.disabled = true;
+  showSpinner('กำลังบันทึก...');
+  google.script.run
+    .withSuccessHandler(function(res){
+      hideSpinner(); btn.disabled = false;
+      if (res.ok) {
+        var cnt = { ม:0, ส:0, ล:0, ข:0 };
+        entries.forEach(function(e){ if (cnt[e.status] !== undefined) cnt[e.status]++; });
+        var pct = entries.length ? Math.round(((cnt['ม'] + cnt['ส']) / entries.length) * 1000) / 10 : 0;
+        loadActivities();
+        showSuccessModal(
+          '✅ บันทึกสำเร็จ!',
+          'สี' + color + ' · ' + activity + '\nมา ' + cnt['ม'] + ' | สาย ' + cnt['ส'] + ' | ลา ' + cnt['ล'] + ' | ขาด ' + cnt['ข'] + ' คน\nเข้าร่วม ' + pct + '%'
+        );
+      } else {
+        showToast('บันทึกไม่สำเร็จ: ' + (res.error || ''), 'err');
+      }
+    })
+    .withFailureHandler(function(err){
+      hideSpinner(); btn.disabled = false;
+      showToast('เกิดข้อผิดพลาด: ' + (err.message || ''), 'err');
+    })
+    .saveAttendance(date, color, activity, entries, pwdFor(color));
+}
+
+// ══════════════════════════════════════════════
+//  CHECK BADGE
+// ══════════════════════════════════════════════
+function checkBadge(color) {
+  var date     = document.getElementById('chk-date').value;
+  var activity = (document.getElementById('chk-activity').value || '').trim() || 'ทั่วไป';
+  google.script.run
+    .withSuccessHandler(function(res){
+      var badge = document.getElementById('chk-badge');
+      if (res.ok && res.checkedColors.indexOf(color) > -1) {
+        badge.innerHTML = '<span class="badge badge-success">✔ บันทึกแล้ว</span>';
+      } else {
+        badge.innerHTML = '<span class="badge badge-warn">⚠️ ยังไม่ได้บันทึก</span>';
+      }
+      badge.style.display = '';
+    })
+    .withFailureHandler(function(){})
+    .getDailyCheckStatus(date, activity);
+}
+
+// ══════════════════════════════════════════════
+//  TELEGRAM SUMMARY
+// ══════════════════════════════════════════════
+function sendTgSummary(period) {
+  var btnMap   = { today:'btn-tg-today', week:'btn-tg-week', month:'btn-tg-month' };
+  var labelMap = { today:'วันนี้', week:'สัปดาห์นี้', month:'เดือนนี้' };
+  var fnMap    = { today:'sendTodaySummaryToTelegram', week:'sendWeeklySummaryToTelegram', month:'sendMonthlySummaryToTelegram' };
+  var btn = document.getElementById(btnMap[period]);
+  if (btn) btn.disabled = true;
+  showSpinner('กำลังส่งสรุป' + labelMap[period] + ' ไปยัง Telegram...');
+  google.script.run
+    .withSuccessHandler(function(res){
+      hideSpinner(); if (btn) btn.disabled = false;
+      if (res.ok) { showToast('✅ ส่งสรุป' + labelMap[period] + ' ไปยัง Telegram สำเร็จ!', 'ok'); }
+      else { showToast('❌ ส่งไม่สำเร็จ: ' + (res.error || ''), 'err'); }
+    })
+    .withFailureHandler(function(err){
+      hideSpinner(); if (btn) btn.disabled = false;
+      showToast('เกิดข้อผิดพลาด: ' + (err.message || ''), 'err');
+    })
+    [fnMap[period]](adminPwd);
+}
+
+// ══════════════════════════════════════════════
+//  REPORT
+// ══════════════════════════════════════════════
+function getReportFilter() {
+  var color    = document.getElementById('rpt-color').value;
+  var level    = document.getElementById('rpt-level').value;
+  var roomNum  = document.getElementById('rpt-room').value;
+  var activity = document.getElementById('rpt-activity').value;
+  return {
+    color    : color,
+    level    : level,
+    room     : (level && roomNum) ? level + '/' + roomNum : '',
+    activity : activity,
+    start    : document.getElementById('rpt-start').value,
+    end      : document.getElementById('rpt-end').value
+  };
+}
+
+function loadReport() {
+  var f = getReportFilter();
+  if (!f.start || !f.end) { showToast('กรุณาเลือกช่วงวันที่', 'err'); return; }
+  var pwd = pwdFor(f.color);
+  var go = function(){
+    showSpinner('กำลังโหลดรายงาน...');
+    var done = 0, rptData = null, ovData = null;
+    function tryRender() {
+      done++; if (done < 2) return;
+      hideSpinner();
+      if (rptData) renderReport(rptData);
+      if (ovData)  renderOverview(ovData, f.start, f.end);
+    }
+    google.script.run
+      .withSuccessHandler(function(res){
+        if (res && res.needPwd) delete colorPwds[f.color];
+        rptData = res; tryRender();
+      })
+      .withFailureHandler(function(){ hideSpinner(); showToast('โหลดรายงานไม่สำเร็จ', 'err'); })
+      .getReport(f, pwd);
+    google.script.run
+      .withSuccessHandler(function(res){ ovData = res; tryRender(); })
+      .withFailureHandler(function(){ ovData = {}; tryRender(); })
+      .getSchoolOverview(f.start, f.end, f.activity);
+    if (f.color) {
+      google.script.run
+        .withSuccessHandler(renderPivot)
+        .withFailureHandler(function(){})
+        .getColorPivot(f, pwd);
+    } else {
+      document.getElementById('rpt-pivot-card').style.display = 'none';
+    }
+  };
+  if (f.color) ensureColorAccess(f.color, go, function(){}); else go();
+}
+
+// ══════════════════════════════════════════════
+//  RENDER REPORT — ปุ่ม toggle แก้ไขสถานะรายบุคคล
+//  ใช้ data-row-id หา tr (ไม่ traverse DOM)
+// ══════════════════════════════════════════════
+function renderReport(res) {
+  if (!res.ok) { showToast('โหลดรายงานไม่สำเร็จ: ' + (res.error || ''), 'err'); return; }
+  var rows = res.rows || [];
+
+  reportRows = rows.map(function(r){
+    return {
+      date        : r.date,
+      room        : r.room,
+      student_no  : r.student_no,
+      student_id  : r.student_id  || '',
+      student_name: r.student_name || '',
+      status      : r.status,
+      timestamp   : r.timestamp,
+      color       : r.color || '',
+      activity    : r.activity || 'ทั่วไป'
+    };
+  });
+
+  var cnt  = { ม:0, ส:0, ล:0, ข:0 };
+  rows.forEach(function(r){ if (cnt[r.status] !== undefined) cnt[r.status]++; });
+
+  document.getElementById('rpt-count').textContent = '(' + rows.length + ' รายการ)';
+  var labels = { ม:'มา', ส:'สาย', ล:'ลา', ข:'ขาด' };
+  document.getElementById('rpt-sum-row').innerHTML = ['ม','ส','ล','ข'].map(function(s){
+    return '<div class="sum-box sum-' + s + '">' +
+           '<span class="num" id="sum-num-' + s + '">' + cnt[s] + '</span>' +
+           '<div class="lbl">' + labels[s] + '</div></div>';
+  }).join('');
+
+  var tbody = document.getElementById('report-tbody');
+  tbody.innerHTML = '';
+  var frag = document.createDocumentFragment();
+
+  rows.forEach(function(r, idx){
+    var tr = document.createElement('tr');
+    tr.className = 'row-' + r.status;
+    tr.setAttribute('data-row-id', idx);
+
+    var toggleHtml = ['ม','ส','ล','ข'].map(function(s){
+      return '<button class="stu-btn stu-' + s + (r.status === s ? ' active' : '') + '" ' +
+             'onclick="updateReportStatus(' + idx + ',\'' + s + '\',this.parentNode)" ' +
+             'aria-label="' + labels[s] + '">' +
+             labels[s] + '</button>';
+    }).join('');
+
+    tr.innerHTML =
+      '<td>' + fmtThDate(r.date) + '</td>' +
+      '<td style="font-size:var(--fs-xs)">' + escHtml(reportRows[idx].activity) + '</td>' +
+      '<td style="font-weight:700"><span class="color-dot" style="background:' + escHtml(colorCode(r.color)) + '"></span> ' + escHtml(r.color || '') + '</td>' +
+      '<td style="font-weight:700">' + escHtml(r.room || '') + '</td>' +
+      '<td style="text-align:center">' + escHtml(r.student_no) + '</td>' +
+      '<td style="font-size:var(--fs-xs);color:var(--slate)">' + escHtml(r.student_id || '') + '</td>' +
+      '<td>' + escHtml(r.student_name || '') + '</td>' +
+      '<td class="td-status"><div class="stu-toggle">' + toggleHtml + '</div></td>' +
+      '<td style="font-size:var(--fs-xs);color:var(--slate)" id="rpt-ts-' + idx + '">' +
+        escHtml(String(r.timestamp || '').substring(0, 16)) + '</td>';
+
+    frag.appendChild(tr);
+  });
+
+  tbody.appendChild(frag);
+  document.getElementById('rpt-table-card').style.display = '';
+}
+
+// ══════════════════════════════════════════════
+//  UPDATE REPORT STATUS
+// ══════════════════════════════════════════════
+function updateReportStatus(idx, newStatus, wrap) {
+  var r = reportRows[idx];
+  if (!r) return;
+
+  var tr = document.querySelector('#report-tbody tr[data-row-id="' + idx + '"]');
+  var prevStatus = r.status;
+
+  wrap.querySelectorAll('.stu-btn').forEach(function(b){
+    var s = b.className.match(/stu-([มสลข])/);
+    b.classList.toggle('active', !!(s && s[1] === newStatus));
+    b.disabled = true;
+  });
+  if (tr) tr.className = 'row-' + newStatus + ' row-saving';
+
+  google.script.run
+    .withSuccessHandler(function(res){
+      wrap.querySelectorAll('.stu-btn').forEach(function(b){ b.disabled = false; });
+      if (tr) tr.classList.remove('row-saving');
+
+      if (res.ok) {
+        r.status = newStatus;
+        var nowStr = new Date().toLocaleString('th-TH', {
+          year:'numeric', month:'2-digit', day:'2-digit',
+          hour:'2-digit', minute:'2-digit', hour12:false
+        });
+        r.timestamp = nowStr;
+        var tsEl = document.getElementById('rpt-ts-' + idx);
+        if (tsEl) tsEl.textContent = nowStr.substring(0, 16);
+        refreshReportSummary();
+        showToast('✅ อัปเดตสถานะสำเร็จ', 'ok');
+      } else {
+        wrap.querySelectorAll('.stu-btn').forEach(function(b){
+          var s = b.className.match(/stu-([มสลข])/);
+          b.classList.toggle('active', !!(s && s[1] === prevStatus));
+        });
+        if (tr) tr.className = 'row-' + prevStatus;
+        showToast('❌ อัปเดตไม่สำเร็จ: ' + (res.error || ''), 'err');
+      }
+    })
+    .withFailureHandler(function(err){
+      wrap.querySelectorAll('.stu-btn').forEach(function(b){ b.disabled = false; });
+      wrap.querySelectorAll('.stu-btn').forEach(function(b){
+        var s = b.className.match(/stu-([มสลข])/);
+        b.classList.toggle('active', !!(s && s[1] === prevStatus));
+      });
+      if (tr) tr.className = 'row-' + prevStatus;
+      showToast('เกิดข้อผิดพลาด: ' + (err.message || ''), 'err');
+    })
+    .updateStudentStatus(r.date, r.color, r.activity, r.room, r.student_no, newStatus, pwdFor(r.color));
+}
+
+// ══════════════════════════════════════════════
+//  REFRESH REPORT SUMMARY COUNTS
+// ══════════════════════════════════════════════
+function refreshReportSummary() {
+  var cnt = { ม:0, ส:0, ล:0, ข:0 };
+  reportRows.forEach(function(r){ if (cnt[r.status] !== undefined) cnt[r.status]++; });
+  ['ม','ส','ล','ข'].forEach(function(s){
+    var el = document.getElementById('sum-num-' + s);
+    if (el) el.textContent = cnt[s];
+  });
+}
+
+// ══════════════════════════════════════════════
+//  RENDER OVERVIEW  (สีไหนเช็คแล้ว/ยังไม่เช็ค + สถิติรายสี + เปรียบเทียบ)
+// ══════════════════════════════════════════════
+function colorChip(name, cls) {
+  return '<span class="room-chip ' + cls + '"><span class="color-dot" style="background:' + escHtml(colorCode(name)) + ';width:10px;height:10px"></span> ' + escHtml(name) + '</span>';
+}
+
+function renderOverview(res, start, end) {
+  if (!res || !res.ok) {
+    document.getElementById('rpt-summary-card').style.display = 'none';
+    document.getElementById('rpt-colorstat-card').style.display = 'none';
+    document.getElementById('rpt-compare-card').style.display = 'none';
+    return;
+  }
+  if (res.colorList && res.colorList.length) APP_CFG.colorList = res.colorList;
+  var ov = res.overview || { checked:[], unchecked:[] };
+  document.getElementById('rpt-today-lbl').textContent = '(' + fmtThDate(start) + ' — ' + fmtThDate(end) + ')';
+  document.getElementById('ov-boxes').innerHTML =
+    '<div class="ov-box ov-checked"><div class="ov-num">' + ov.checked.length + '</div><div class="ov-lbl">สีที่เช็คแล้ววันนี้</div></div>' +
+    '<div class="ov-box ov-unchecked"><div class="ov-num">' + ov.unchecked.length + '</div><div class="ov-lbl">สีที่ยังไม่ได้เช็ค</div></div>';
+  document.getElementById('ov-checked-list').innerHTML = ov.checked.length
+    ? '<div style="font-size:var(--fs-sm);font-weight:700;color:var(--emerald-dk);margin-bottom:4px">✅ เช็คแล้ว</div>' +
+      '<div class="room-list">' + ov.checked.map(function(r){ return colorChip(r, 'rc-ok'); }).join('') + '</div>' : '';
+  document.getElementById('ov-unchecked-list').innerHTML = ov.unchecked.length
+    ? '<div style="font-size:var(--fs-sm);font-weight:700;color:var(--rose-dk);margin-bottom:4px">❌ ยังไม่เช็ค</div>' +
+      '<div class="room-list">' + ov.unchecked.map(function(r){ return colorChip(r, 'rc-no'); }).join('') + '</div>' : '';
+  document.getElementById('rpt-summary-card').style.display = '';
+  renderDailyChart(res.daily || []);
+  renderColorStats(res.colorStats || []);
+  renderCompare(res.colorStats || []);
+}
+
+function renderColorStats(stats) {
+  var rows = stats.filter(function(s){ return s.total > 0; });
+  var card = document.getElementById('rpt-colorstat-card');
+  if (!rows.length) { card.style.display = 'none'; return; }
+  card.style.display = '';
+  document.getElementById('colorstat-tbody').innerHTML = rows.map(function(s){
+    return '<tr>' +
+      '<td style="font-weight:800"><span class="color-dot" style="background:' + escHtml(s.code) + '"></span> ' + escHtml(s.color) + '</td>' +
+      '<td>' + s['ม'] + '</td><td>' + s['ส'] + '</td><td>' + s['ล'] + '</td><td>' + s['ข'] + '</td>' +
+      '<td>' + s.total + '</td>' +
+      '<td style="font-weight:800;color:var(--violet-dk)">' + s.pct + '%</td></tr>';
+  }).join('');
+}
+
+function renderCompare(stats) {
+  var rows = stats.filter(function(s){ return s.total > 0; });
+  var card = document.getElementById('rpt-compare-card');
+  if (!rows.length) { card.style.display = 'none'; return; }
+  card.style.display = '';
+  var labels = rows.map(function(s){ return s.color; });
+
+  if (compareChartInst) compareChartInst.destroy();
+  compareChartInst = new Chart(document.getElementById('compare-chart').getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'เข้าร่วม (%)',
+        data: rows.map(function(s){ return s.pct; }),
+        backgroundColor: rows.map(function(s){ return s.code + 'cc'; }),
+        borderColor: rows.map(function(s){ return s.code; }),
+        borderWidth: 2, borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      plugins: { legend: { display: false }, title: { display: true, text: 'อัตราการเข้าร่วม (มา+สาย) แยกตามสี (%)' } },
+      scales: { y: { beginAtZero: true, suggestedMax: 100, ticks: { font: { size: 11 } } }, x: { grid: { display: false } } }
+    }
+  });
+
+  if (radarChartInst) radarChartInst.destroy();
+  radarChartInst = new Chart(document.getElementById('radar-chart').getContext('2d'), {
+    type: 'radar',
+    data: {
+      labels: ['มา', 'สาย', 'ลา', 'ขาด'],
+      datasets: rows.map(function(s){
+        var t = s.total || 1;
+        return {
+          label: s.color,
+          data: [s['ม'], s['ส'], s['ล'], s['ข']].map(function(v){ return Math.round(v / t * 1000) / 10; }),
+          borderColor: s.code, backgroundColor: s.code + '33', borderWidth: 2, pointBackgroundColor: s.code
+        };
+      })
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      plugins: { legend: { position: 'bottom' }, title: { display: true, text: 'สัดส่วนสถานะของแต่ละสี (%)' } },
+      scales: { r: { beginAtZero: true, suggestedMax: 100, ticks: { backdropColor: 'transparent', font: { size: 10 } } } }
+    }
+  });
+}
+
+function renderDailyChart(daily) {
+  if (!daily.length) { document.getElementById('rpt-daily-card').style.display = 'none'; return; }
+  document.getElementById('rpt-daily-card').style.display = '';
+  var labels = daily.map(function(d){ return fmtThDate(d.date); });
+  var ds = [
+    { label:'มา',  data: daily.map(function(d){ return d['ม']||0; }), backgroundColor:'#86efac', borderColor:'#059669', borderWidth:1.5, borderRadius:4 },
+    { label:'สาย', data: daily.map(function(d){ return d['ส']||0; }), backgroundColor:'#fde68a', borderColor:'#d97706', borderWidth:1.5, borderRadius:4 },
+    { label:'ลา',  data: daily.map(function(d){ return d['ล']||0; }), backgroundColor:'#bfdbfe', borderColor:'#2563eb', borderWidth:1.5, borderRadius:4 },
+    { label:'ขาด', data: daily.map(function(d){ return d['ข']||0; }), backgroundColor:'#fecaca', borderColor:'#e11d48', borderWidth:1.5, borderRadius:4 }
+  ];
+  var ctx = document.getElementById('daily-chart').getContext('2d');
+  if (dailyChartInst) dailyChartInst.destroy();
+  dailyChartInst = new Chart(ctx, {
+    type: 'bar',
+    data: { labels: labels, datasets: ds },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      plugins: { legend: { position:'bottom', labels:{ font:{ size:12 }, padding:12 } } },
+      scales: {
+        x: { stacked:true, ticks:{ font:{ size:11 }, maxRotation:45 }, grid:{ display:false } },
+        y: { stacked:true, ticks:{ font:{ size:11 } }, beginAtZero:true }
+      }
+    }
+  });
+}
+
+function pivotDateLabel(d) {
+  return fmtThDate(String(d).substring(0, 10)) + escHtml(String(d).substring(10));
+}
+
+function renderPivot(res) {
+  var card = document.getElementById('rpt-pivot-card');
+  if (!res || !res.ok || !res.dates || !res.dates.length) { card.style.display = 'none'; return; }
+  card.style.display = '';
+  var dates = res.dates, sts = res.students;
+  var labels = { ม:'มา', ส:'สาย', ล:'ลา', ข:'ขาด' };
+  var html = '<table><thead><tr>' +
+    '<th scope="col">เลขที่</th><th scope="col">ห้อง</th><th scope="col">รหัส</th><th scope="col">ชื่อ-สกุล</th>' +
+    dates.map(function(d){ return '<th scope="col" style="min-width:56px;text-align:center">' + pivotDateLabel(d) + '</th>'; }).join('') +
+    '</tr></thead><tbody>';
+  sts.forEach(function(st){
+    html += '<tr>' +
+      '<td style="text-align:center;font-weight:700;color:var(--slate)">' + escHtml(st.no) + '</td>' +
+      '<td style="font-size:var(--fs-xs);color:var(--slate);white-space:nowrap">' + escHtml(st.room || '') + '</td>' +
+      '<td style="font-size:var(--fs-xs);color:var(--slate)">' + escHtml(st.student_id || '') + '</td>' +
+      '<td style="font-weight:600">' + escHtml(st.name || '') + '</td>' +
+      dates.map(function(d){
+        var s = st.statuses[d] || '-';
+        return '<td style="text-align:center"><span class="status-pill sp-' + s + '">' + (labels[s]||s) + '</span></td>';
+      }).join('') + '</tr>';
+  });
+  html += '</tbody></table>';
+  document.getElementById('pivot-wrap').innerHTML = html;
+}
+
+// ══════════════════════════════════════════════
+//  EXPORT CSV
+// ══════════════════════════════════════════════
+function exportCSV() {
+  var f = getReportFilter();
+  if (!f.start || !f.end) { showToast('กรุณาเลือกช่วงวันที่', 'err'); return; }
+  var run = function(){
+    showSpinner('กำลังสร้าง CSV...');
+    google.script.run
+      .withSuccessHandler(function(csv){
+        hideSpinner();
+        var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        var url  = URL.createObjectURL(blob);
+        var a    = document.createElement('a');
+        a.href = url; a.download = 'attendance_' + (f.color || 'all') + '_' + f.start + '_' + f.end + '.csv';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('ดาวน์โหลด CSV สำเร็จ ✅', 'ok');
+      })
+      .withFailureHandler(function(err){
+        hideSpinner(); showToast('ส่งออกไม่สำเร็จ: ' + (err.message || ''), 'err');
+      })
+      .exportReportCSV(f, pwdFor(f.color));
+  };
+  if (f.color) ensureColorAccess(f.color, run, function(){}); else run();
+}
+
+// ══════════════════════════════════════════════
+//  พิมพ์ / บันทึก PDF รายงานแยกสี
+// ══════════════════════════════════════════════
+function printReport() {
+  if (!reportRows.length) { showToast('กรุณากด "ดูรายงาน" ก่อนพิมพ์', 'err'); return; }
+  var groups = {}, order = [];
+  reportRows.forEach(function(r){
+    var c = r.color || '(ไม่ระบุสี)';
+    if (!groups[c]) { groups[c] = []; order.push(c); }
+    groups[c].push(r);
+  });
+  var cfgOrder = (APP_CFG.colorList || []).map(function(c){ return c.name; });
+  order.sort(function(a, b){
+    var ia = cfgOrder.indexOf(a), ib = cfgOrder.indexOf(b);
+    return (ia < 0 ? 999 : ia) - (ib < 0 ? 999 : ib);
+  });
+  var start = document.getElementById('rpt-start').value;
+  var end   = document.getElementById('rpt-end').value;
+  var school = escHtml(APP_CFG.schoolName || '');
+  var title  = escHtml(APP_CFG.webTitle || 'ระบบเช็คชื่อกิจกรรมสี');
+  var labels = { ม:'มา', ส:'สาย', ล:'ลา', ข:'ขาด' };
+
+  var html = order.map(function(c){
+    var rows = groups[c];
+    var cnt = { ม:0, ส:0, ล:0, ข:0 };
+    rows.forEach(function(r){ if (cnt[r.status] !== undefined) cnt[r.status]++; });
+    var pct = rows.length ? Math.round(((cnt['ม'] + cnt['ส']) / rows.length) * 1000) / 10 : 0;
+    var code = colorCode(c);
+    var body = rows.map(function(r){
+      return '<tr><td>' + fmtThDate(r.date) + '</td><td>' + escHtml(r.activity) + '</td><td>' + escHtml(r.room || '') +
+             '</td><td style="text-align:center">' + escHtml(r.student_no) + '</td><td>' + escHtml(r.student_name || '') +
+             '</td><td>' + (labels[r.status] || escHtml(r.status)) + '</td></tr>';
+    }).join('');
+    return '<div class="print-sec">' +
+      '<div class="team-banner" style="--team:' + escHtml(code) + ';--team-ink:' + inkFor(code) + '"><span>🎨 สี' + escHtml(c) + '</span><small>' + rows.length + ' รายการ</small></div>' +
+      '<h2>' + school + ' — ' + title + '</h2>' +
+      '<div class="print-meta">ช่วงวันที่ ' + fmtThDate(start) + ' — ' + fmtThDate(end) +
+        ' · มา ' + cnt['ม'] + ' | สาย ' + cnt['ส'] + ' | ลา ' + cnt['ล'] + ' | ขาด ' + cnt['ข'] + ' | เข้าร่วม ' + pct + '%</div>' +
+      '<table><thead><tr><th>วันที่</th><th>กิจกรรม</th><th>ห้อง</th><th>เลขที่</th><th>ชื่อ-สกุล</th><th>สถานะ</th></tr></thead><tbody>' + body + '</tbody></table></div>';
+  }).join('');
+
+  document.getElementById('print-area').innerHTML = html;
+  document.body.classList.add('printing-report');
+  clearTimeout(printTimer);
+  printTimer = setTimeout(endPrint, 120000);
+  setTimeout(function(){ window.print(); }, 150);
+}
+
+function endPrint() {
+  clearTimeout(printTimer);
+  document.body.classList.remove('printing-report');
+  var pa = document.getElementById('print-area');
+  if (pa) pa.innerHTML = '';
+}
+
+// ══════════════════════════════════════════════
+//  LEADERBOARD (กระดานคะแนนสี)
+// ══════════════════════════════════════════════
+function loadBoard(silent) {
+  var start = document.getElementById('lb-start').value;
+  var end   = document.getElementById('lb-end').value;
+  var act   = document.getElementById('lb-activity').value;
+  google.script.run
+    .withSuccessHandler(function(res){
+      if (!res || !res.ok) { if (!silent) showToast('โหลดคะแนนไม่สำเร็จ: ' + ((res && res.error) || ''), 'err'); return; }
+      renderBoard(res);
+    })
+    .withFailureHandler(function(err){
+      if (!silent) showToast('โหลดคะแนนไม่สำเร็จ: ' + (err.message || ''), 'err');
+    })
+    .getLeaderboard(start, end, act);
+}
+
+function renderBoard(res) {
+  var rows = res.rows || [];
+  var list = document.getElementById('lb-list');
+  if (!rows.length) { list.innerHTML = '<p class="hint">ยังไม่มีข้อมูล</p>'; return; }
+  var max = Math.max.apply(null, rows.map(function(r){ return r.score; }).concat([1]));
+  list.innerHTML = rows.map(function(r){
+    var w = Math.max(0, Math.min(100, r.score / max * 100));
+    var medal = r.rank === 1 ? '🥇' : r.rank === 2 ? '🥈' : r.rank === 3 ? '🥉' : r.rank;
+    return '<div class="lb-row" style="--c:' + escHtml(r.code) + '">' +
+      '<div class="lb-rank r' + r.rank + '">' + medal + '</div>' +
+      '<div><div class="lb-name"><span class="color-dot" style="background:' + escHtml(r.code) + '"></span>' + escHtml(r.color) + '</div>' +
+      '<div class="lb-sub">เข้าร่วม ' + r.pct + '% (' + r.present + '/' + r.total_checked + ') · คะแนนพิเศษ ' + (r.bonus > 0 ? '+' : '') + r.bonus + '</div>' +
+      '<div class="lb-bar"><i style="width:' + w + '%"></i></div></div>' +
+      '<div class="lb-score">' + r.score + '<small>คะแนนรวม</small></div></div>';
+  }).join('');
+  document.getElementById('lb-updated').textContent = 'อัปเดตล่าสุด ' + (res.updated || '');
+}
+
+// ══════════════════════════════════════════════
+//  SETTINGS
+// ══════════════════════════════════════════════
+function loadSettings() {
+  if (!adminPwd) { showToast('กรุณาปลดล็อคด้วยรหัสผู้ดูแลก่อน', 'err'); return; }
+  showSpinner('กำลังโหลดการตั้งค่า...');
+  google.script.run
+    .withSuccessHandler(function(res){
+      hideSpinner();
+      if (!res || !res.ok) { showToast('โหลดการตั้งค่าไม่สำเร็จ: ' + ((res && res.error) || ''), 'err'); return; }
+      var cfg = res.cfg;
+      APP_CFG = cfg;
+      document.getElementById('set-logo').value     = cfg.school_Logo || '';
+      document.getElementById('set-school').value   = cfg.schoolName  || '';
+      document.getElementById('set-title').value    = cfg.webTitle    || '';
+      document.getElementById('set-levels').value   = (cfg.levels || []).join(',');
+      document.getElementById('set-rooms').value    = (cfg.rooms  || []).join(',');
+      document.getElementById('set-colors').value   = (cfg.colors || []).join(',');
+      document.getElementById('set-tg-token').value = cfg.telegramToken  || '';
+      document.getElementById('set-tg-chat').value  = cfg.telegramChatId || '';
+      document.getElementById('logo-preview').src   = cfg.school_Logo || '';
+      setFontSize(cfg.fontSize || 'medium', true);
+      var savedFont = cfg.fontFamily || 'K2D';
+      currentFont = savedFont; pendingFont = savedFont;
+      document.getElementById('set-font').value = savedFont;
+      loadGoogleFont(savedFont, function(){
+        document.getElementById('font-preview-text').style.fontFamily = "'" + savedFont + "', 'K2D', sans-serif";
+      });
+      applyConfig();
+      buildColorPickers(true);
+      loadScoreLog();
+      loadMoveHistory();
+    })
+    .withFailureHandler(function(){
+      hideSpinner(); showToast('โหลดการตั้งค่าไม่สำเร็จ', 'err');
+    })
+    .getAdminConfig(adminPwd);
+}
+
+function previewLogo() {
+  document.getElementById('logo-preview').src = document.getElementById('set-logo').value;
+}
+
+// ── ตัวเลือกสี + รหัสผ่านครูประจำสี ──
+function currentPickerCodes() {
+  var map = {};
+  document.querySelectorAll('#color-pickers .color-pick-row').forEach(function(row){
+    map[row.getAttribute('data-color')] = row.querySelector('input[type="color"]').value;
+  });
+  return map;
+}
+function currentPickerPwds() {
+  var map = {};
+  document.querySelectorAll('#color-pickers .color-pick-row').forEach(function(row){
+    map[row.getAttribute('data-color')] = row.querySelector('.cp-pwd').value;
+  });
+  return map;
+}
+function parseColorNames() {
+  var seen = {}, out = [];
+  document.getElementById('set-colors').value.split(',').forEach(function(s){
+    s = s.trim();
+    if (s && !seen[s]) { seen[s] = true; out.push(s); }
+  });
+  return out;
+}
+
+function buildColorPickers(fromServer) {
+  var names = parseColorNames();
+  var prevCodes = fromServer ? {} : currentPickerCodes();
+  var prevPwds  = fromServer ? {} : currentPickerPwds();
+  var box = document.getElementById('color-pickers');
+  box.innerHTML = '';
+  names.forEach(function(n, i){
+    var code = prevCodes[n] || colorCodeFromCfg(n) || PALETTE[i % PALETTE.length];
+    var locked = isLocked(n);
+    var row = document.createElement('div');
+    row.className = 'color-pick-row';
+    row.setAttribute('data-color', n);
+    row.innerHTML =
+      '<div class="cp-name"><span class="color-dot" style="background:' + escHtml(code) + '"></span>' + escHtml(n) + (locked ? ' 🔒' : '') + '</div>' +
+      '<input type="color" value="' + escHtml(code) + '" aria-label="รหัสสี ' + escHtml(n) + '">' +
+      '<input type="text" class="cp-pwd" placeholder="' + (locked ? 'ตั้งรหัสไว้แล้ว (ว่าง=ไม่เปลี่ยน, - =ลบ)' : 'รหัสผ่านครูประจำสี (ไม่บังคับ)') + '" autocomplete="off" spellcheck="false">';
+    var pw = row.querySelector('.cp-pwd');
+    if (prevPwds[n]) pw.value = prevPwds[n];
+    var picker = row.querySelector('input[type="color"]');
+    picker.addEventListener('input', function(){ row.querySelector('.color-dot').style.background = picker.value; });
+    box.appendChild(row);
+  });
+}
+function rebuildColorPickers() { buildColorPickers(false); }
+
+function colorCodeFromCfg(name) {
+  var list = APP_CFG.colorList || [];
+  for (var i = 0; i < list.length; i++) { if (list[i].name === name) return list[i].code; }
+  return '';
+}
+
+function saveSettings() {
+  var newPwd = document.getElementById('set-newpwd').value.trim();
+  var cnfPwd = document.getElementById('set-confirmpwd').value.trim();
+  if (newPwd && newPwd !== cnfPwd) { showToast('รหัสผ่านใหม่ไม่ตรงกัน', 'err'); return; }
+  var names = parseColorNames();
+  if (!names.length) { showToast('กรุณาใส่ชื่อสีอย่างน้อย 1 สี', 'err'); return; }
+  var codesMap = currentPickerCodes(), pwdMap = currentPickerPwds();
+  var codes = names.map(function(n, i){ return codesMap[n] || PALETTE[i % PALETTE.length]; });
+  var cpw = {};
+  names.forEach(function(n){ if (String(pwdMap[n] || '').trim()) cpw[n] = String(pwdMap[n]).trim(); });
+
+  var btn = document.getElementById('btn-save-settings');
+  btn.disabled = true;
+  showSpinner('กำลังบันทึกการตั้งค่า...');
+  var config = {
+    school_Logo    : document.getElementById('set-logo').value.trim(),
+    schoolName     : document.getElementById('set-school').value.trim(),
+    webTitle       : document.getElementById('set-title').value.trim(),
+    levels         : document.getElementById('set-levels').value.trim(),
+    rooms          : document.getElementById('set-rooms').value.trim(),
+    colors         : names.join(','),
+    colorCodes     : codes.join(','),
+    colorPasswords : cpw,
+    telegramToken  : document.getElementById('set-tg-token').value.trim(),
+    telegramChatId : document.getElementById('set-tg-chat').value.trim(),
+    fontSize       : currentFs,
+    fontFamily     : currentFont
+  };
+  if (newPwd) config.adminPassword = newPwd;
+  google.script.run
+    .withSuccessHandler(function(res){
+      hideSpinner(); btn.disabled = false;
+      if (res.ok) {
+        showToast('บันทึกการตั้งค่าสำเร็จ ✅', 'ok');
+        if (newPwd) { adminPwd = newPwd; lastPwd = newPwd; }
+        colorPwds = {};
+        document.getElementById('set-newpwd').value     = '';
+        document.getElementById('set-confirmpwd').value = '';
+        loadSettings();
+      } else {
+        showToast('บันทึกไม่สำเร็จ: ' + (res.error || ''), 'err');
+      }
+    })
+    .withFailureHandler(function(err){
+      hideSpinner(); btn.disabled = false;
+      showToast('เกิดข้อผิดพลาด: ' + (err.message || ''), 'err');
+    })
+    .saveAdminConfig(config, adminPwd);
+}
+
+// ── คะแนนพิเศษ ──
+function addScore() {
+  var color = document.getElementById('sc-color').value;
+  var pts   = document.getElementById('sc-points').value;
+  if (!color) { showToast('กรุณาเลือกสี', 'err'); return; }
+  if (pts === '' || Number(pts) === 0) { showToast('กรุณาใส่คะแนน (ไม่เป็น 0)', 'err'); return; }
+  google.script.run
+    .withSuccessHandler(function(res){
+      if (res.ok) {
+        showToast('เพิ่มคะแนนสำเร็จ ✅', 'ok');
+        document.getElementById('sc-points').value = '';
+        document.getElementById('sc-note').value = '';
+        loadScoreLog();
+      } else { showToast('เพิ่มไม่สำเร็จ: ' + (res.error || ''), 'err'); }
+    })
+    .withFailureHandler(function(err){ showToast('เกิดข้อผิดพลาด: ' + (err.message || ''), 'err'); })
+    .addColorScore(
+      document.getElementById('sc-date').value, color,
+      (document.getElementById('sc-activity').value || '').trim() || 'ทั่วไป',
+      pts, document.getElementById('sc-note').value, adminPwd
+    );
+}
+
+function loadScoreLog() {
+  google.script.run
+    .withSuccessHandler(function(res){
+      var box = document.getElementById('score-log');
+      if (!res || !res.ok || !res.log.length) { box.innerHTML = '<p class="hint">ยังไม่มีรายการคะแนนพิเศษ</p>'; return; }
+      box.innerHTML = res.log.map(function(x){
+        return '<div class="mini-item"><span><span class="color-dot" style="background:' + escHtml(colorCode(x.color)) + '"></span> <b>' + escHtml(x.color) + '</b> · ' +
+          fmtThDate(x.date) + ' · ' + escHtml(x.activity) + ' · <b>' + (Number(x.points) > 0 ? '+' : '') + escHtml(x.points) + '</b>' +
+          (x.note ? ' · ' + escHtml(x.note) : '') + '</span>' +
+          '<button class="btn btn-danger btn-sm" onclick="deleteScore(' + Number(x.row) + ')">ลบ</button></div>';
+      }).join('');
+    })
+    .withFailureHandler(function(){})
+    .getColorScoreLog(adminPwd);
+}
+
+function deleteScore(row) {
+  google.script.run
+    .withSuccessHandler(function(res){
+      if (res.ok) { showToast('ลบรายการแล้ว', 'ok'); loadScoreLog(); }
+      else showToast('ลบไม่สำเร็จ: ' + (res.error || ''), 'err');
+    })
+    .withFailureHandler(function(err){ showToast('เกิดข้อผิดพลาด: ' + (err.message || ''), 'err'); })
+    .deleteColorScore(row, adminPwd);
+}
+
+// ── ย้ายนักเรียนข้ามสี ──
+function searchMove() {
+  var q = document.getElementById('mv-query').value.trim();
+  if (!q) { showToast('กรุณาใส่ชื่อหรือรหัสนักเรียน', 'err'); return; }
+  google.script.run
+    .withSuccessHandler(function(res){
+      var box = document.getElementById('mv-results');
+      if (!res || !res.ok) { showToast('ค้นหาไม่สำเร็จ: ' + ((res && res.error) || ''), 'err'); return; }
+      if (!res.students.length) { box.innerHTML = '<p class="hint">ไม่พบนักเรียน</p>'; return; }
+      box.innerHTML = res.students.map(function(s){
+        var opts = '<option value="">(ไม่มีสี)</option>' + (APP_CFG.colorList || []).map(function(c){
+          return '<option value="' + escHtml(c.name) + '"' + (c.name === s.color ? ' selected' : '') + '>' + escHtml(c.name) + '</option>';
+        }).join('');
+        return '<div class="mini-item"><span><b>' + escHtml(s.name) + '</b> · ' + escHtml(s.room) + ' เลขที่ ' + escHtml(s.no) +
+          ' · รหัส ' + escHtml(s.student_id) + ' · สีเดิม: ' + (s.color ? escHtml(s.color) : '-') + '</span>' +
+          '<span style="display:flex;gap:6px;align-items:center"><select id="mv-sel-' + Number(s.row) + '">' + opts + '</select>' +
+          '<button class="btn btn-primary btn-sm" onclick="moveStudent(' + Number(s.row) + ')">ย้าย</button></span></div>';
+      }).join('');
+    })
+    .withFailureHandler(function(err){ showToast('เกิดข้อผิดพลาด: ' + (err.message || ''), 'err'); })
+    .searchStudents(q, adminPwd);
+}
+
+function moveStudent(row) {
+  var sel = document.getElementById('mv-sel-' + row);
+  if (!sel) return;
+  google.script.run
+    .withSuccessHandler(function(res){
+      if (res.ok) {
+        showToast('ย้ายสำเร็จ: ' + (res.from || '-') + ' → ' + (res.to || '-'), 'ok');
+        searchMove(); loadMoveHistory();
+      } else { showToast('ย้ายไม่สำเร็จ: ' + (res.error || ''), 'err'); }
+    })
+    .withFailureHandler(function(err){ showToast('เกิดข้อผิดพลาด: ' + (err.message || ''), 'err'); })
+    .moveStudentColor(row, sel.value, '', adminPwd);
+}
+
+function loadMoveHistory() {
+  google.script.run
+    .withSuccessHandler(function(res){
+      var box = document.getElementById('mv-history');
+      if (!res || !res.ok || !res.history.length) { box.innerHTML = '<p class="hint">ยังไม่มีประวัติการย้ายสี</p>'; return; }
+      box.innerHTML = res.history.map(function(h){
+        return '<div class="mini-item"><span><b>' + escHtml(h.name) + '</b> (' + escHtml(h.room) + ' เลขที่ ' + escHtml(h.no) + ') · ' +
+          escHtml(h.from || '-') + ' → ' + escHtml(h.to || '-') + '</span><span class="hint" style="margin:0">' + escHtml(String(h.time).substring(0, 16)) + '</span></div>';
+      }).join('');
+    })
+    .withFailureHandler(function(){})
+    .getColorHistory(adminPwd);
+}
+
+// ══════════════════════════════════════════════
+//  HELPERS
+// ══════════════════════════════════════════════
+function fmtThDate(iso) {
+  if (!iso) return '';
+  var p = String(iso).split('-');
+  if (p.length < 3) return iso;
+  return p[2] + '/' + p[1] + '/' + (parseInt(p[0],10) + 543);
+}
+
+function escHtml(s) {
+  return String(s === undefined || s === null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>
